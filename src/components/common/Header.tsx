@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import { Bell, Menu } from "lucide-react";
 import { ProfileCircle } from "iconsax-react";
 import { useIsMobile } from "@/hooks/use-mobile"; 
+import { pageMessages } from "@/lib/constants";
+
 
 interface HeaderProps {
   toggleSidebar?: () => void; 
@@ -13,19 +15,10 @@ const Header = ({ toggleSidebar }: HeaderProps) => {
   const userName = "Hardik Kubavat";
   const isMobile = useIsMobile(); 
 
-  const welcomeMessage = `let's finish your task today!`;
-  const pageMessages: Record<string, string> = {
-    "/": welcomeMessage,
-    "/task": "Explore Tasks",
-    "/mentors": "Meet Your Mentors",
-    "/message": "Your Messages",
-    "/settings": "Settings & Preferences",
-  };
-
   const pageTitle = pageMessages[location.pathname as keyof typeof pageMessages] || "Welcome!";
 
   return (
-    <div className="flex justify-between items-center bg-white p-4 shadow-md rounded-lg">
+    <div className="flex justify-between items-center bg-white p-4 rounded-lg">
       {/* Left Side - Menu (Mobile) and Name/Title */}
       <div className="flex items-center gap-3">
         {isMobile && toggleSidebar && (

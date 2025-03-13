@@ -21,3 +21,12 @@ export const DAYS_OF_WEEK = [
     { key: "6", label: "F" },
     { key: "7", label: "S" },
   ];
+
+  const welcomeMessage = `let's finish your task today!`;
+  export const pageMessages: Record<string, string> = {
+    "/": welcomeMessage,
+    "/task": "Explore Tasks",
+    "/mentors": "Meet Your Mentors",
+    "/message": "Your Messages",
+    "/settings": "Settings & Preferences",
+  };

@@ -11,37 +11,33 @@ const MainLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const isMobile = useIsMobile(); // Use the hook
 
-  // Toggle sidebar function to pass to Header
-  const toggleSidebar = () => {
-    setIsSidebarOpen(prev => !prev);
-  };
 
-  // Calculate main content margin based on device and sidebar state
-  const mainContentClasses = isMobile
-    ? "w-full" // On mobile, no margin needed as sidebar overlaps
-    : `transition-all duration-300 w-full ${
-        isSidebarOpen ? "ml-64" : "ml-20"
-      }`;
 
   return (
-    <div className="flex">
-      {dashboardRoutes.includes(location.pathname) && (
-        <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
-      )}
-
-      {/* Main Content */}
-      <main className={`${mainContentClasses} p-4`}>
-        {/* Pass toggleSidebar to Header for mobile */}
-        {location.pathname !== "/" ? (
-          <Header toggleSidebar={toggleSidebar} />
-        ) : (
-          <div className="mb-4">
-            <Header toggleSidebar={toggleSidebar} />
-          </div>
+    <div className="min-h-screen bg-[#F5F5F7]">
+      <div className="flex">
+        {/* Sidebar */}
+        {dashboardRoutes.includes(location.pathname) && (
+          <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
         )}
-        
-        <Outlet />
-      </main>
+
+        {/* Main Content */}
+        <main 
+          className={`flex-1 p-6 transition-all duration-300 
+            ${isSidebarOpen ? "lg:ml-64" : "lg:ml-20"}`}
+        >
+          {/* Only render header in the left column for dashboard */}
+          {location.pathname === "/" ? (
+            <div className="lg:max-w-[calc(100%-380px-2rem)]">
+              <Header toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)} />
+            </div>
+          ) : (
+            <Header toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)} />
+          )}
+          
+          <Outlet />
+        </main>
+      </div>
     </div>
   );
 };

@@ -1,29 +1,40 @@
-// src/pages/Dashboard.tsx
 import RunningTaskCard from "@/components/ui/RunningTaskCard";
 import Calendar from "../components/ui/Calendar";
+import { ActivityChart } from "@/components/ui/ActivityChart";
 
 const Dashboard = () => {
-  return (
-    <div className="bg-[#F5F5F7] min-h-screen">
-      <div className="flex flex-col lg:flex-row gap-8">
-        {/* Left Side - Content Area */}
-        <div className="flex-1">
-          {/* Main Content Area */}
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {/* RunningTaskCard with responsive width */}
-            <div className="w-full sm:col-span-1">
-              <RunningTaskCard />
+    return (
+      <div className="min-h-screen p-4">
+        {/* Main Grid Container */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-6">
+          {/* Left Column - Main Content */}
+          <div className="space-y-6">
+            {/* Content Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {/* Running Task Card - Takes 1 column */}
+              <div className="lg:col-span-1 h-[200px]">
+                <RunningTaskCard />
+              </div>
+              
+              {/* Activity Chart - Takes 2 columns */}
+              <div className="lg:col-span-2">
+                <ActivityChart />
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* Right Side - Calendar */}
-        <div className="w-full lg:w-[380px] mt-6 lg:mt-0">
-          <Calendar />
+  
+          {/* Right Column - Calendar */}
+          <div className="hidden lg:block lg:fixed lg:right-6 lg:top-6 lg:w-[380px]">
+            <Calendar />
+          </div>
+  
+          {/* Mobile Calendar */}
+          <div className="lg:hidden">
+            <Calendar />
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  };
 
 export default Dashboard;
