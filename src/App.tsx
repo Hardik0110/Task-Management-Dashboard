@@ -1,20 +1,12 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Sidebar from "@/components/common/Sidebar";
+import { BrowserRouter as Router } from "react-router-dom";
+import AppRoutes from "./routes";
 
-function App() {
+const App = () => {
   return (
     <Router>
-      <div className="flex">
-        {/* Sidebar */}
-        <Sidebar />
-
-        {/* Main Content */}
-        <div className="flex-1 p-6">
-          
-        </div>
-      </div>
+      <AppRoutes />
     </Router>
   );
-}
+};
 
 export default App;
