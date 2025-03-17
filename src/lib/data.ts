@@ -26,6 +26,7 @@ export const mentors: Mentor[] = [
     reviews: 750,
     followed: false,
     image: avatar1,
+    description: 'The description of the mentor... , and I dont know what else to write here ',
   },
   {
     id: '2',
@@ -36,6 +37,7 @@ export const mentors: Mentor[] = [
     reviews: 810,
     followed: false,
     image: avatar2,
+    description: 'The description of the second mentor... , Writing this just to make the description longer',
   },
   {
     id: '3',
@@ -46,6 +48,8 @@ export const mentors: Mentor[] = [
     reviews: 810,
     followed: false,
     image: avatar2,
+    description: 'The description of the third mentor... , Writing this just to make the description longer',
+
   },
   {
     id: '4',
@@ -56,7 +60,74 @@ export const mentors: Mentor[] = [
     reviews: 810,
     followed: false,
     image: avatar1,
+    description: 'The description of the foourth mentor... , Writing this just to make the description longer'
   },
+  {
+    id: '5',
+    name: 'Jessica Jane',
+    role: 'Web Developer',
+    taskCount: 40,
+    rating: 4.7,
+    reviews: 750,
+    followed: false,
+    image: '/src/assets/avatar1.png',
+    description: "Hi, I'm Jessica Jane. I am a doctoral student at Harvard University majoring in Web..."
+  },
+  {
+    id: '6',
+    name: 'Alex Stanton',
+    role: 'UI/UX Designer',
+    taskCount: 60,
+    rating: 4.9,
+    reviews: 970,
+    followed: true,
+    image: '/src/assets/avatar2.png',
+    description: "Hi, I'm Alex Stanton. I am a doctoral student at Oxford University majoring in UI/UX..."
+  },
+  {
+    id: '7',
+    name: 'Antoine Griezmann',
+    role: 'Android Developer',
+    taskCount: 50,
+    rating: 4.8,
+    reviews: 830,
+    followed: false,
+    image: '/src/assets/avatar3.png',
+    description: "Hi, I'm Antoine Griezmann. I'm an Android Developer at Google company..."
+  },
+  {
+    id: '8',
+    name: 'Anna White',
+    role: '3D Design',
+    taskCount: 60,
+    rating: 4.8,
+    reviews: 870,
+    followed: true,
+    image: '/src/assets/avatar1.png',
+    description: "Hi, I'm Anna White. I'm a professional 3D Designer at Blender company..."
+  },
+  {
+    id: '9',
+    name: 'Richard Kyle',
+    role: '2D Design',
+    taskCount: 60,
+    rating: 4.7,
+    reviews: 730,
+    followed: false,
+    image: '/src/assets/avatar2.png',
+    description: "Hi, I'm Richard Kyle. I'm a professional 2D Designer at Photoshop company..."
+  },
+  {
+    id: '10',
+    name: 'Julia Philips',
+    role: 'iOS Developer',
+    taskCount: 60,
+    rating: 4.9,
+    reviews: 910,
+    followed: false,
+    image: '/src/assets/avatar3.png',
+    description: "Hi, I'm Julia Philips. I'm a senior manager at Apple company..."
+  }
 ];
 
 export const upcomingTasks: Task[] = [

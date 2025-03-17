@@ -12,6 +12,7 @@ export interface TeamMember {
     reviews: number;
     followed: boolean;
     image: string;
+    description: string
   }
   
   export interface Task {
