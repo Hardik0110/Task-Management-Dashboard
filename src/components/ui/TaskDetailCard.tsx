@@ -1,30 +1,17 @@
 import React from 'react';
 import { Clock } from 'lucide-react';
+import { Task } from '@/lib/types';
+import ProgressBar from './ProgressBar';
+import { AvatarStack } from './Avatar';
 
-type TaskStep = {
-  number: number;
-  description: string;
-  completed?: boolean;
-};
-
-type TaskDetailCardProps = {
-  title: string;
-  role: string;
-  progress: number;
-  timeLeft: string;
-  image: string;
-  teamMembers?: { name: string; avatar: string }[];
-  steps: TaskStep[];
-};
-
-const TaskDetailCard: React.FC<TaskDetailCardProps> = ({
+const TaskDetailCard: React.FC<Task> = ({
   title,
   role,
   progress,
   timeLeft,
   image,
   teamMembers = [],
-  steps,
+  steps = [],
 }) => {
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-sm">
@@ -39,42 +26,19 @@ const TaskDetailCard: React.FC<TaskDetailCardProps> = ({
         <p className="text-xs text-gray-500">{role}</p>
         
         <div className="mt-4">
-          <div className="flex justify-between items-center mb-1">
-            <span className="text-sm font-medium">Progress</span>
-            <span className="text-sm font-medium text-blue-600">{progress}%</span>
-          </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
-            <div 
-              className="bg-blue-600 h-2 rounded-full" 
-              style={{ width: `${progress}%` }}
-            ></div>
-          </div>
+          <ProgressBar 
+            progress={progress} 
+            showLabel={true}
+            height="md"
+          />
         </div>
         
         <div className="flex items-center mt-4">
           <Clock className="h-4 w-4 text-gray-500 mr-1" />
           <span className="text-sm">{timeLeft}</span>
           
-          <div className="ml-auto flex -space-x-2">
-            {teamMembers.length > 0 ? (
-              teamMembers.slice(0, 4).map((member, i) => (
-                <img 
-                  key={i}
-                  src={member.avatar}
-                  alt={member.name}
-                  className="w-6 h-6 rounded-full border-2 border-white"
-                  title={member.name}
-                />
-              ))
-            ) : (
-              // Placeholder avatars if no team members provided
-              Array(4).fill(0).map((_, i) => (
-                <div 
-                  key={i}
-                  className="w-6 h-6 rounded-full border-2 border-white bg-gray-200"
-                />
-              ))
-            )}
+          <div className="ml-auto">
+            <AvatarStack members={teamMembers} maxAvatars={4} size="sm" />
           </div>
         </div>
         

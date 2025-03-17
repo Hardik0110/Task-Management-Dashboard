@@ -1,61 +1,38 @@
 import React from 'react';
-import { ArrowRight2 , ArrowLeft2 } from  'iconsax-react';
-import TaskCard from '../ui/TaskCard';
-import avatar1 from '/src/assets/avatar1.png'
-import avatar2 from '/src/assets/avatar2.png'
-import avatar3 from '/src/assets/avatar3.png'
-import Image2 from '/src/assets/Image2.png'
-import Image3 from '/src/assets/Image3.png'
+import TaskCard from './TaskCard';
+import SectionHeader from '../common/SectionHeader';
+import { useCarousel } from '@/hooks/use-carousel';
+import { upcomingTasks } from '@/lib/data';
 
 const UpcomingTasksSection: React.FC = () => {
-  const tasks = [
-    {
-      id: '1',
-      title: 'Creating Mobile App Design',
-      role: 'UI/UX Designer',
-      progress: 75,
-      daysLeft: 3,
-      image: Image2,
-      teamMembers: [
-        { name: 'Alex Johnson', avatar: avatar1 },
-        { name: 'Sarah Miller', avatar: avatar2 },
-        { name: 'Mike Chen', avatar: avatar3 },
-      ],
-    },
-    {
-      id: '2',
-      title: 'Creating Perfect Website',
-      role: 'Web Designer',
-      progress: 85,
-      daysLeft: 4,
-      image: Image3,
-      teamMembers: [
-        { name: 'Emily Wilson', avatar: avatar1 },
-        { name: 'David Lee', avatar: avatar2 },
-        { name: 'Jessica Taylor', avatar: avatar3 },
-        { name: 'Ryan Brown', avatar: avatar2 },
-      ],
-    },
-  ];
+  const cardsToShow = 2;
+  const { 
+    handlePrevious, 
+    handleNext, 
+    isFirstPage, 
+    isLastPage, 
+    visibleItems 
+  } = useCarousel({
+    totalItems: upcomingTasks.length,
+    itemsPerPage: cardsToShow
+  });
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-semibold">Upcoming Task</h2>
-        <div className="flex space-x-4">
-          <button className="p-1 cursor-pointer">
-            <ArrowLeft2 className="h-5 w-5" color='#333' />
-          </button>
-          <button className="p-1 cursor-pointer">
-            <ArrowRight2 className="h-5 w-5" color='#333' />
-          </button>
-        </div>
-      </div>
+      <SectionHeader 
+        title="Upcoming Task"
+        hasNavigation={true}
+        onPrevious={handlePrevious}
+        onNext={handleNext}
+        disablePrevious={isFirstPage}
+        disableNext={isLastPage}
+      />
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {tasks.map((task) => (
+        {visibleItems(upcomingTasks).map((task) => (
           <TaskCard
             key={task.id}
+            id={task.id}
             title={task.title}
             role={task.role}
             progress={task.progress}
