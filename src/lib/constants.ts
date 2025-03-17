@@ -1,6 +1,5 @@
 import { Category2, Book1, UserOctagon, Message, Setting2 } from "iconsax-react";
 
-/** 📌 Sidebar Navigation Links */
 export const sidebarLinks = [
   { name: "Overview", path: "/", icon: Category2 },
   { name: "Task", path: "/task", icon: Book1 },
@@ -9,7 +8,6 @@ export const sidebarLinks = [
   { name: "Settings", path: "/settings", icon: Setting2 },
 ];
 
-/** 📌 Routes that should have the Sidebar */
 export const dashboardRoutes = ["/", "/task", "/mentors", "/message", "/settings"];
 
 export const DAYS_OF_WEEK = [
@@ -26,7 +24,7 @@ export const DAYS_OF_WEEK = [
   export const pageMessages: Record<string, string> = {
     "/": welcomeMessage,
     "/task": "Explore Tasks",
-    "/mentors": "Meet Your Mentors",
+    "/mentors": "Explore Mentors",
     "/message": "Your Messages",
     "/settings": "Settings & Preferences",
   };

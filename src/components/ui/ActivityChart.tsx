@@ -1,6 +1,6 @@
 import { CartesianGrid, Line, LineChart, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChevronRight } from "lucide-react";
+import { ArrowRight2 } from "iconsax-react";
 import ChartTooltip from "./ChartTooltip";
 import { activityChartData } from "@/lib/data";
 import IconButton from "./IconButton";
@@ -13,7 +13,7 @@ export function ActivityChart() {
         <div className="flex items-center text-xs text-gray-500">
           This Week
           <IconButton 
-            icon={<ChevronRight className="h-4 w-4" />} 
+            icon={<ArrowRight2 className="h-4 w-4" color="#333" />} 
             ariaLabel="View more"
           />
         </div>
@@ -38,7 +38,6 @@ export function ActivityChart() {
                 width={20}
               />
               <Tooltip content={<ChartTooltip suffix=" Tasks" />} />
-              {/* Average Line */}
               <Line
                 type="monotone"
                 dataKey="average"
@@ -47,7 +46,6 @@ export function ActivityChart() {
                 dot={false}
                 strokeDasharray="5 5"
               />
-              {/* Tasks Line */}
               <Line
                 type="monotone"
                 dataKey="tasks"

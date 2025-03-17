@@ -26,12 +26,10 @@ const MainLayout = () => {
   return (
     <div className="min-h-screen bg-[#F5F5F7]">
       <div className="flex">
-        {/* Sidebar */}
         {dashboardRoutes.includes(location.pathname) && (
           <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
         )}
 
-        {/* Main Content */}
         <main 
           className={`flex-1 transition-all duration-300 
             ${isSidebarOpen && !isMobile ? "lg:ml-64" : "lg:ml-20"}`}

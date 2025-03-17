@@ -1,4 +1,3 @@
-// src/components/ui/Calendar.tsx
 import { useState } from "react";
 import {
   format,
@@ -8,7 +7,7 @@ import {
   startOfWeek,
   endOfWeek,
 } from "date-fns";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight2 , ArrowLeft2 } from "iconsax-react";
 import { DAYS_OF_WEEK } from "@/lib/constants";
 
 const Calendar = () => {
@@ -21,19 +20,17 @@ const Calendar = () => {
   });
 
   return (
-    <div className="bg-white p-3 sm:p-4 rounded-lg shadow-md w-full overflow-hidden">
-      {/* Header */}
+    <div className="bg-white p-3 sm:p-4 rounded-lg  w-full overflow-hidden">
       <div className="flex justify-between items-center mb-4">
         <button onClick={() => setCurrentWeek(subWeeks(currentWeek, 1))}>
-          <ChevronLeft className="text-gray-600" />
+          <ArrowLeft2 className="h-5 w-5" color="#333"/>
         </button>
         <h2 className="text-base sm:text-lg font-semibold">{format(currentWeek, "MMMM yyyy")}</h2>
         <button onClick={() => setCurrentWeek(addWeeks(currentWeek, 1))}>
-          <ChevronRight className="text-gray-600" />
+          <ArrowRight2 className="h-5 w-5" color="#333" />
         </button>
       </div>
 
-      {/* Days of the Week */}
       <div className="grid grid-cols-7 text-center mb-3 relative text-xs sm:text-sm">
         {DAYS_OF_WEEK.map((day, index) => {
           const isSelected =
@@ -55,7 +52,6 @@ const Calendar = () => {
         })}
       </div>
 
-      {/* Current Week Days */}
       <div className="grid grid-cols-7 relative">
         {weekDays.map((day) => {
           const isSelected = format(day, "yyyy-MM-dd") === format(selectedDate, "yyyy-MM-dd");

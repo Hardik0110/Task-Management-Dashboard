@@ -56,7 +56,6 @@ export const AvatarStack: React.FC<AvatarStackProps> = ({
         />
       ))}
       
-      {/* Placeholders if no members provided */}
       {Array(placeholderCount)
         .fill(0)
         .map((_, i) => (

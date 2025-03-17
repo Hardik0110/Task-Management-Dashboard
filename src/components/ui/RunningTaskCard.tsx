@@ -10,8 +10,7 @@ const RunningTaskCard = () => {
       <p className="text-4xl font-bold mb-3">{completedTasks}</p>
 
       <div className="flex justify-between items-center">
-        {/* Left Side - Progress Circle */}
-        <div className="relative flex items-center justify-center">
+        <div className="relative flex items-center justify-center"> 
           <svg className="w-16 h-16 transform -rotate-90" viewBox="0 0 100 100">
             <circle
               className="text-gray-700"
@@ -39,7 +38,6 @@ const RunningTaskCard = () => {
           <span className="absolute text-sm font-semibold">{progressPercentage}%</span>
         </div>
 
-        {/* Right Side - Task Count */}
         <div className="flex flex-col items-end">
           <span className="text-xl font-bold">{totalTasks}</span>
           <span className="text-xs text-gray-400">Task</span>
