@@ -1,9 +1,13 @@
 import React from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import TaskCard from '../ui/TaskCard';
+import avatar1 from '/src/assets/avatar1.png'
+import avatar2 from '/src/assets/avatar2.png'
+import avatar3 from '/src/assets/avatar3.png'
+import Image2 from '/src/assets/Image2.png'
+import Image3 from '/src/assets/Image3.png'
 
 const UpcomingTasksSection: React.FC = () => {
-  // Sample data - replace with your actual data
   const tasks = [
     {
       id: '1',
@@ -11,11 +15,11 @@ const UpcomingTasksSection: React.FC = () => {
       role: 'UI/UX Designer',
       progress: 75,
       daysLeft: 3,
-      image: '/placeholder.svg?height=150&width=200',
+      image: Image2,
       teamMembers: [
-        { name: 'Alex Johnson', avatar: '/placeholder.svg?height=24&width=24&text=1' },
-        { name: 'Sarah Miller', avatar: '/placeholder.svg?height=24&width=24&text=2' },
-        { name: 'Mike Chen', avatar: '/placeholder.svg?height=24&width=24&text=3' },
+        { name: 'Alex Johnson', avatar: avatar1 },
+        { name: 'Sarah Miller', avatar: avatar2 },
+        { name: 'Mike Chen', avatar: avatar3 },
       ],
     },
     {
@@ -24,12 +28,12 @@ const UpcomingTasksSection: React.FC = () => {
       role: 'Web Designer',
       progress: 85,
       daysLeft: 4,
-      image: '/placeholder.svg?height=150&width=200',
+      image: Image3,
       teamMembers: [
-        { name: 'Emily Wilson', avatar: '/placeholder.svg?height=24&width=24&text=1' },
-        { name: 'David Lee', avatar: '/placeholder.svg?height=24&width=24&text=2' },
-        { name: 'Jessica Taylor', avatar: '/placeholder.svg?height=24&width=24&text=3' },
-        { name: 'Ryan Brown', avatar: '/placeholder.svg?height=24&width=24&text=4' },
+        { name: 'Emily Wilson', avatar: avatar1 },
+        { name: 'David Lee', avatar: avatar2 },
+        { name: 'Jessica Taylor', avatar: avatar3 },
+        { name: 'Ryan Brown', avatar: avatar2 },
       ],
     },
   ];
@@ -38,7 +42,7 @@ const UpcomingTasksSection: React.FC = () => {
     <div>
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-semibold">Upcoming Task</h2>
-        <div className="flex space-x-2">
+        <div className="flex space-x-4">
           <button className="p-1 rounded-full border">
             <ChevronLeft className="h-4 w-4" />
           </button>

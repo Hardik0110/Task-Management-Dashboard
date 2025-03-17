@@ -35,9 +35,10 @@ const Dashboard = () => {
         </div>
 
         {/* Right Column - Calendar and Task Today */}
-        <div className="hidden lg:block lg:fixed lg:right-6 lg:top-6 lg:w-[380px] space-y-6">
+        <div className="hidden lg:block lg:fixed lg:right-6 lg:top-6 lg:w-[380px] space-y-4">
           <Calendar />
-          <TaskTodaySection />
+          
+          <TaskTodaySection/>
         </div>
 
         {/* Mobile Calendar and Task Today */}

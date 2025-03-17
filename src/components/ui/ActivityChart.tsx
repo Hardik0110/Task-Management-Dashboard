@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { CartesianGrid, Line, LineChart, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChevronRight } from "lucide-react";
@@ -37,7 +36,7 @@ export function ActivityChart() {
         </div>
       </CardHeader>
       <CardContent>
-        <div className="bg-white rounded-lg ">
+        <div className="h-[150px] bg-white rounded-lg p-2">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={chartData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />

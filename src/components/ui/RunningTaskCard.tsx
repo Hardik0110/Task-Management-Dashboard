@@ -1,8 +1,8 @@
-// src/components/ui/RunningTaskCard.tsx
+
 const RunningTaskCard = () => {
   const totalTasks = 100;
   const completedTasks = 65;
-  const progressPercentage = 45; // Fixed at 45% as per design
+  const progressPercentage = 45; 
   
   return (
     <div className="bg-[#111] text-white p-4 sm:p-6 rounded-lg shadow-md h-full">

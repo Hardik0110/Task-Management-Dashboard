@@ -22,7 +22,7 @@ const MonthlyMentorsSection: React.FC = () => {
       taskCount: 32,
       rating: 4.9,
       reviews: 810,
-      followed: true,
+      followed: false,
       image: '/placeholder.svg?height=60&width=60',
     },
   ];

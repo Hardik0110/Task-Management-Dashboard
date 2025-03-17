@@ -1,20 +1,24 @@
 import React from 'react';
 import { MoreHorizontal } from 'lucide-react';
 import TaskDetailCard from '../ui/TaskDetailCard';
+import avatar1 from '/src/assets/avatar1.png'
+import avatar2 from '/src/assets/avatar2.png'
+import avatar3 from '/src/assets/avatar3.png'
+import Image1 from '/src/assets/Image1.png'
 
 const TaskTodaySection: React.FC = () => {
-  // Sample data - replace with your actual data
+ 
   const taskToday = {
     title: 'Creating Awesome Mobile Apps',
     role: 'UI/UX Designer',
     progress: 90,
     timeLeft: '1 Hour',
-    image: '/placeholder.svg?height=150&width=300',
+    image: Image1,
     teamMembers: [
-      { name: 'Alex Johnson', avatar: '/placeholder.svg?height=24&width=24&text=1' },
-      { name: 'Sarah Miller', avatar: '/placeholder.svg?height=24&width=24&text=2' },
-      { name: 'Mike Chen', avatar: '/placeholder.svg?height=24&width=24&text=3' },
-      { name: 'Emily Wilson', avatar: '/placeholder.svg?height=24&width=24&text=4' },
+      { name: 'Alex Johnson', avatar: avatar1 },
+      { name: 'Sarah Miller', avatar: avatar2 },
+      { name: 'Mike Chen', avatar: avatar3 },
+      { name: 'Emily Wilson', avatar: avatar2 },
     ],
     steps: [
       { number: 1, description: 'Understanding the tools in Figma' },

@@ -3,12 +3,10 @@ import { useState } from "react";
 import Sidebar from "../components/common/Sidebar";
 import { dashboardRoutes } from "../lib/constants";
 import Header from "../components/common/Header";
-import { useIsMobile } from "@/hooks/use-mobile"; // Import the hook
 
 const MainLayout = () => {
   const location = useLocation();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const isMobile = useIsMobile(); // Use the hook
 
 
 

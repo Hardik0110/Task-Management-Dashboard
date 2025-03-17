@@ -10,7 +10,6 @@ type ChartTooltipProps = {
 export const ChartTooltip: React.FC<ChartTooltipProps> = ({ 
   active, 
   payload, 
-  label,
   suffix = ""
 }) => {
   if (active && payload && payload.length) {
