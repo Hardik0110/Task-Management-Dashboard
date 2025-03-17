@@ -1,7 +1,6 @@
 import React from 'react';
-import { Star, FileText } from 'lucide-react';
+import { Star } from 'lucide-react';
 import { Notepad2 } from 'iconsax-react';
-import avatar1 from '/src/assets/avatar1.png'
 
 type MentorCardProps = {
   name: string;
@@ -20,10 +19,11 @@ const MentorCard: React.FC<MentorCardProps> = ({
   rating,
   reviews,
   followed,
+  image
 }) => {
   return (
     <div className="bg-white p-4 rounded-lg flex items-center shadow-sm">
-      <img src={avatar1} alt={name} className="w-12 h-12 rounded-full mr-3" />
+      <img src={image} alt={name} className="w-12 h-12 rounded-full mr-3" />
       <div className="flex-1">
         <h3 className="font-medium">{name}</h3>
         <p className="text-xs text-gray-500">{role}</p>

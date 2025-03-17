@@ -1,8 +1,7 @@
-// src/components/common/Sidebar.tsx
 import { useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Book1, MessageQuestion } from "iconsax-react";
-import { X } from "lucide-react"; 
+import { X } from "lucide-react";
 import { sidebarLinks } from "../../lib/constants";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -13,17 +12,23 @@ interface SidebarProps {
 
 const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
   const sidebarRef = useRef<HTMLDivElement>(null);
-  const isMobile = useIsMobile(); 
+  const isMobile = useIsMobile();
+
   useEffect(() => {
+    if (isMobile) return;
     const handleClickOutside = (event: MouseEvent) => {
-      if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
-  
+
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [setIsOpen]);
+    return () =>
+      document.removeEventListener("mousedown", handleClickOutside);
+  }, [setIsOpen, isMobile]);
 
   const sidebarClasses = isMobile
     ? `fixed top-0 left-0 h-full bg-white shadow-md z-40 transition-all duration-300 ${
@@ -44,10 +49,11 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
           <div className="bg-blue-500 p-2 rounded-md">
             <Book1 size="24" variant="Bold" color="white" />
           </div>
-          {(isOpen || isMobile) && <h2 className="text-3xl font-bold text-gray-900">DNX</h2>}
+          {(isOpen || isMobile) && (
+            <h2 className="text-3xl font-bold text-gray-900">DNX</h2>
+          )}
         </div>
-        
-        {/* Close button for mobile */}
+
         {isMobile && isOpen && (
           <button onClick={() => setIsOpen(false)} className="text-gray-500">
             <X size={24} />
@@ -62,10 +68,12 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
             to={path}
             className={({ isActive }) =>
               `flex items-center gap-3 px-2 py-2 rounded-lg transition ${
-                isActive ? "bg-gray-100 text-gray-900 font-semibold" : "text-gray-500"
+                isActive
+                  ? "bg-gray-100 text-gray-900 font-semibold"
+                  : "text-gray-500"
               }`
             }
-            onClick={() => isMobile && setIsOpen(false)} // Close sidebar on mobile after navigation
+            onClick={() => isMobile && setIsOpen(false)}
           >
             <span className="w-6 flex justify-center">
               <Icon size="24" variant="Outline" color="#555" />
@@ -77,7 +85,9 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
 
       <div
         className={`mt-auto relative transition-all duration-300 mb-4 ${
-          (isOpen || isMobile) ? "p-4 bg-gray-900 text-white rounded-lg" : "flex justify-center"
+          isOpen || isMobile
+            ? "p-4 bg-gray-900 text-white rounded-lg"
+            : "flex justify-center"
         }`}
       >
         <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-white p-2 rounded-full shadow-lg">
@@ -86,7 +96,9 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
         {(isOpen || isMobile) && (
           <div className="mt-6 text-center">
             <h3 className="text-sm font-semibold">Help Center</h3>
-            <p className="text-xs opacity-75">Having trouble? Contact us for help.</p>
+            <p className="text-xs opacity-75">
+              Having trouble? Contact us for help.
+            </p>
             <button className="mt-3 w-full bg-white text-gray-900 text-sm font-medium py-2 rounded-md hover:bg-gray-50 transition-colors">
               Go To Help Center
             </button>

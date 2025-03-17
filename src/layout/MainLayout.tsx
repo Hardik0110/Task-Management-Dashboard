@@ -1,14 +1,27 @@
-import { Outlet, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { Outlet, useLocation, useOutletContext } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Sidebar from "../components/common/Sidebar";
 import { dashboardRoutes } from "../lib/constants";
-import Header from "../components/common/Header";
+import { useIsMobile } from "@/hooks/use-mobile";
+
+type ContextType = {
+  toggleSidebar: () => void;
+};
 
 const MainLayout = () => {
   const location = useLocation();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const isMobile = useIsMobile();
 
+  useEffect(() => {
+    if (isMobile) {
+      setIsSidebarOpen(false);
+    }
+  }, [location.pathname, isMobile]);
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen(prevState => !prevState);
+  };
 
   return (
     <div className="min-h-screen bg-[#F5F5F7]">
@@ -20,19 +33,10 @@ const MainLayout = () => {
 
         {/* Main Content */}
         <main 
-          className={`flex-1 p-6 transition-all duration-300 
-            ${isSidebarOpen ? "lg:ml-64" : "lg:ml-20"}`}
+          className={`flex-1 transition-all duration-300 
+            ${isSidebarOpen && !isMobile ? "lg:ml-64" : "lg:ml-20"}`}
         >
-          {/* Only render header in the left column for dashboard */}
-          {location.pathname === "/" ? (
-            <div className="lg:max-w-[calc(100%-380px-2rem)]">
-              <Header toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)} />
-            </div>
-          ) : (
-            <Header toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)} />
-          )}
-          
-          <Outlet />
+          <Outlet context={{ toggleSidebar }} />
         </main>
       </div>
     </div>
@@ -40,3 +44,7 @@ const MainLayout = () => {
 };
 
 export default MainLayout;
+
+export function useMainLayout() {
+  return useOutletContext<ContextType>();
+}

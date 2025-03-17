@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight2 , ArrowLeft2 } from  'iconsax-react';
 import TaskCard from '../ui/TaskCard';
 import avatar1 from '/src/assets/avatar1.png'
 import avatar2 from '/src/assets/avatar2.png'
@@ -43,11 +43,11 @@ const UpcomingTasksSection: React.FC = () => {
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-semibold">Upcoming Task</h2>
         <div className="flex space-x-4">
-          <button className="p-1 rounded-full border">
-            <ChevronLeft className="h-4 w-4" />
+          <button className="p-1 cursor-pointer">
+            <ArrowLeft2 className="h-5 w-5" color='#333' />
           </button>
-          <button className="p-1 rounded-full border">
-            <ChevronRight className="h-4 w-4" />
+          <button className="p-1 cursor-pointer">
+            <ArrowRight2 className="h-5 w-5" color='#333' />
           </button>
         </div>
       </div>

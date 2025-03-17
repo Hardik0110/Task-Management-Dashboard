@@ -5,7 +5,6 @@ import { ProfileCircle } from "iconsax-react";
 import { useIsMobile } from "@/hooks/use-mobile"; 
 import { pageMessages } from "@/lib/constants";
 
-
 interface HeaderProps {
   toggleSidebar?: () => void; 
 }
@@ -13,36 +12,42 @@ interface HeaderProps {
 const Header = ({ toggleSidebar }: HeaderProps) => {
   const location = useLocation();
   const userName = "Hardik Kubavat";
-  const isMobile = useIsMobile(); 
+  const isMobile = useIsMobile();
 
-  const pageTitle = pageMessages[location.pathname as keyof typeof pageMessages] || "Welcome!";
+  const pageTitle = pageMessages[location.pathname as keyof typeof pageMessages] || "let's finish your task today!";
 
   return (
-    <div className="flex justify-between items-center bg-white p-4 rounded-lg">
-      {/* Left Side - Menu (Mobile) and Name/Title */}
-      <div className="flex items-center gap-3">
-        {isMobile && toggleSidebar && (
-          <button onClick={toggleSidebar} className="mr-2">
-            <Menu className="w-6 h-6 text-gray-600" />
-          </button>
-        )}
-        
-        <div className="flex flex-col">
-          {location.pathname === "/" ? (
-            <>
-              <h2 className="text-2xl font-bold text-gray-900">Hi, {userName}</h2>
-              <p className="text-sm text-gray-500 mt-1">{pageTitle}</p>
-            </>
-          ) : (
-            <h2 className="text-xl font-semibold">{pageTitle}</h2>
+    <div className="bg-white p-6 rounded-lg shadow-sm">
+      <div className="flex justify-between items-center">
+        <div className="flex items-center gap-4">
+          {isMobile && toggleSidebar && (
+            <button 
+              onClick={toggleSidebar}
+              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              aria-label="Toggle sidebar"
+            >
+              <Menu className="w-6 h-6 text-gray-600" />
+            </button>
           )}
+          
+          <div className="flex flex-col">
+            <h2 className="text-2xl font-bold text-gray-900">Hi, {userName}</h2>
+            <p className="text-sm text-gray-500 mt-1">{pageTitle}</p>
+          </div>
         </div>
-      </div>
 
-      {/* Right Side - Bell Icon & Profile */}
-      <div className="flex items-center space-x-4">
-        <Bell className="w-6 h-6 text-gray-600 cursor-pointer" />
-        <ProfileCircle size="28" color="#333" className="w-8 h-8 cursor-pointer rounded-full" />
+        <div className="flex items-center space-x-4">
+          <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+            <Bell className="w-6 h-6 text-gray-600" />
+          </button>
+          <button className="p-1 hover:bg-gray-100 rounded-full transition-colors">
+            <ProfileCircle 
+              size="32" 
+              color="#333" 
+              className="cursor-pointer rounded-full"
+            />
+          </button>
+        </div>
       </div>
     </div>
   );

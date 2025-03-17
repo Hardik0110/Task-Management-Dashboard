@@ -4,47 +4,45 @@ import { ActivityChart } from "@/components/ui/ActivityChart";
 import MonthlyMentorsSection from "@/components/ui/MonthlyMentorsSection";
 import UpcomingTasksSection from "@/components/ui/UpcomingTasksSection";
 import TaskTodaySection from "@/components/ui/TaskTodaySection";
+import Header from "../components/common/Header";
+import { useMainLayout } from "@/layout/MainLayout";
 
 const Dashboard = () => {
-  return (
-    <div className="min-h-screen p-4">
-      {/* Main Grid Container */}
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-6">
-        {/* Left Column - Main Content */}
-        <div className="space-y-6">
-          
+  const { toggleSidebar } = useMainLayout();
 
-          {/* Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Running Task Card - Takes 1 column */}
-            <div className="lg:col-span-1 h-[200px]">
+  return (
+    <div className="min-h-screen bg-[#F5F5F7] p-6">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-6">
+        <div className="space-y-6">
+          <Header toggleSidebar={toggleSidebar} />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="h-[200px]">
               <RunningTaskCard />
             </div>
             
-            {/* Activity Chart - Takes 2 columns */}
-            <div className="lg:col-span-2">
+            <div className="md:col-span-2">
               <ActivityChart />
             </div>
           </div>
 
-          {/* Monthly Mentors Section */}
-          <MonthlyMentorsSection />
+          <div className="bg-white rounded-lg p-6">
+            <MonthlyMentorsSection />
+          </div>
 
-          {/* Upcoming Tasks Section */}
-          <UpcomingTasksSection />
+          <div className="bg-white rounded-lg p-6">
+            <UpcomingTasksSection />
+          </div>
         </div>
 
-        {/* Right Column - Calendar and Task Today */}
-        <div className="hidden lg:block lg:fixed lg:right-6 lg:top-6 lg:w-[380px] space-y-4">
-          <Calendar />
-          
-          <TaskTodaySection/>
-        </div>
+        <div className="space-y-16">
+          <div className="bg-white rounded-lg p-6">
+            <Calendar />
+          </div>
 
-        {/* Mobile Calendar and Task Today */}
-        <div className="lg:hidden space-y-6">
-          <Calendar />
-          <TaskTodaySection />
+          <div className="bg-white rounded-lg p-6">
+            <TaskTodaySection />
+          </div>
         </div>
       </div>
     </div>

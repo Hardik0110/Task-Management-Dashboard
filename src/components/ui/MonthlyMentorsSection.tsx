@@ -1,9 +1,10 @@
-import React from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight2 , ArrowLeft2 } from  'iconsax-react';
 import MentorCard from '../ui/MentorCard';
+import avatar1 from '/src/assets/avatar1.png';
+import avatar2 from '/src/assets/avatar2.png';
 
 const MonthlyMentorsSection: React.FC = () => {
-  // Sample data - replace with your actual data
   const mentors = [
     {
       id: '1',
@@ -13,7 +14,7 @@ const MonthlyMentorsSection: React.FC = () => {
       rating: 4.7,
       reviews: 750,
       followed: false,
-      image: '/placeholder.svg?height=60&width=60',
+      image: avatar1,
     },
     {
       id: '2',
@@ -23,36 +24,88 @@ const MonthlyMentorsSection: React.FC = () => {
       rating: 4.9,
       reviews: 810,
       followed: false,
-      image: '/placeholder.svg?height=60&width=60',
+      image: avatar2,
+    },
+    {
+      id: '3',
+      name: 'Abraham Lincoln',
+      role: '3D Design',
+      taskCount: 32,
+      rating: 4.9,
+      reviews: 810,
+      followed: false,
+      image: avatar2,
+    },
+    {
+      id: '4',
+      name: 'Abraham Lincoln',
+      role: '3D Design',
+      taskCount: 32,
+      rating: 4.9,
+      reviews: 810,
+      followed: false,
+      image: avatar1,
     },
   ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const cardsToShow = 2; 
+
+  const handlePrevious = () => {
+    setCurrentIndex((prevIndex) => {
+      const newIndex = prevIndex - cardsToShow;
+      return newIndex < 0 ? 0 : newIndex;
+    });
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => {
+      const newIndex = prevIndex + cardsToShow;
+      return newIndex + cardsToShow > mentors.length ? prevIndex : newIndex;
+    });
+  };
+
+  const visibleMentors = mentors.slice(currentIndex, currentIndex + cardsToShow);
 
   return (
     <div>
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-semibold">Monthly Mentors</h2>
         <div className="flex space-x-2">
-          <button className="p-1 rounded-full border">
-            <ChevronLeft className="h-4 w-4" />
+          <button
+            className={`p-1 cursor-pointer ${
+              currentIndex === 0 ? 'text-gray-300' : 'text-gray-600'
+            }`}
+            onClick={handlePrevious}
+            disabled={currentIndex === 0}
+          >
+            <ArrowLeft2 className="h-5 w-5" color='#333'/>
           </button>
-          <button className="p-1 rounded-full border">
-            <ChevronRight className="h-4 w-4" />
+          <button
+            className={`p-1 cursor-pointer ${
+              currentIndex + cardsToShow >= mentors.length ? 'text-gray-300' : 'text-gray-600'
+            }`}
+            onClick={handleNext}
+            disabled={currentIndex + cardsToShow >= mentors.length}
+          >
+            <ArrowRight2 className="h-5 w-5" color='#333' />
           </button>
         </div>
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {mentors.map((mentor) => (
-          <MentorCard
-            key={mentor.id}
-            name={mentor.name}
-            role={mentor.role}
-            taskCount={mentor.taskCount}
-            rating={mentor.rating}
-            reviews={mentor.reviews}
-            followed={mentor.followed}
-            image={mentor.image}
-          />
+        {visibleMentors.map((mentor) => (
+          <div key={mentor.id} className="transition-all duration-300 ease-in-out">
+            <MentorCard
+              name={mentor.name}
+              role={mentor.role}
+              taskCount={mentor.taskCount}
+              rating={mentor.rating}
+              reviews={mentor.reviews}
+              followed={mentor.followed}
+              image={mentor.image}
+            />
+          </div>
         ))}
       </div>
     </div>
