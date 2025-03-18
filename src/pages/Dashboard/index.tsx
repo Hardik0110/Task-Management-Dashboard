@@ -1,10 +1,10 @@
-import RunningTaskCard from "@/components/ui/RunningTaskCard";
-import Calendar from "../components/ui/Calendar";
-import { ActivityChart } from "@/components/ui/ActivityChart";
-import MonthlyMentorsSection from "@/components/ui/MonthlyMentorsSection";
-import UpcomingTasksSection from "@/components/ui/UpcomingTasksSection";
+import RunningTaskCard from "@/pages/Dashboard/RunningTaskCard";
+import Calendar from "../../components/ui/Calendar";
+import { ActivityChart } from "@/pages/Dashboard/ActivityChart";
+import MonthlyMentorsSection from "./MonthlyMentorsSection";
+import UpcomingTasksSection from "@/components/common/shared/UpcomingTasksSection";
 import TaskTodaySection from "@/components/ui/TaskTodaySection";
-import Header from "../components/common/Header";
+import Header from "../../components/common/Header";
 import { useMainLayout } from "@/layout/MainLayout";
 
 const Dashboard = () => {

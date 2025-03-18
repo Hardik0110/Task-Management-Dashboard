@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
-import Task from "./pages/Task";
+import Task from "./pages/Tasks";
 import Mentors from "./pages/Mentors";
 import Message from "./pages/Message";
 import Settings from "./pages/Settings";

@@ -3,7 +3,7 @@ import Header from "@/components/common/Header";
 import { mentors } from "@/lib/data";
 import { useCarousel } from "@/hooks/use-carousel";
 import SectionHeader from "@/components/common/SectionHeader";
-import MentorCard from "@/components/ui/MentorCard";
+import MentorCard from "@/components/common/shared/MentorCard";
 
 
 

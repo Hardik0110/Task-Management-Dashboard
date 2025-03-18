@@ -1,6 +1,6 @@
 import React from 'react';
 import TaskCard from './TaskCard';
-import SectionHeader from '../common/SectionHeader';
+import SectionHeader from '../SectionHeader';
 import { useCarousel } from '@/hooks/use-carousel';
 import { upcomingTasks } from '@/lib/data';
 

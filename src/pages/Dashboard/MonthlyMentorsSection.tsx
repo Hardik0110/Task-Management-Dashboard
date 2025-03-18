@@ -1,6 +1,6 @@
 import React from 'react';
-import MentorCard from './MentorCard';
-import SectionHeader from '../common/SectionHeader';
+import MentorCard from '@/components/common/shared/MentorCard';
+import SectionHeader from '@/components/common/SectionHeader';
 import { useCarousel } from '@/hooks/use-carousel';
 import { mentors } from '@/lib/data';
 

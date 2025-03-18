@@ -1,9 +1,9 @@
 import { CartesianGrid, Line, LineChart, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight2 } from "iconsax-react";
-import ChartTooltip from "./ChartTooltip";
+import ChartTooltip from "../../components/features/ChartTooltip";
 import { activityChartData } from "@/lib/data";
-import IconButton from "./IconButton";
+import IconButton from "../../components/ui/IconButton";
 
 export function ActivityChart() {
   return (

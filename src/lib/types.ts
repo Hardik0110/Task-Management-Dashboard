@@ -76,3 +76,12 @@ export interface TeamMember {
     ariaLabel?: string;
     className?: string;
   }
+
+  export interface SectionHeaderProps {
+    title: string;
+    hasNavigation?: boolean;
+    onPrevious?: () => void;
+    onNext?: () => void;
+    disablePrevious?: boolean;
+    disableNext?: boolean;
+  }

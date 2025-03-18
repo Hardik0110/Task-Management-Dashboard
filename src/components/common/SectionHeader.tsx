@@ -1,14 +1,6 @@
 import {  ArrowLeft2,  ArrowRight2 } from "iconsax-react";
+import { SectionHeaderProps } from "@/lib/types";
 
-interface SectionHeaderProps {
-  title: string;
-  hasNavigation?: boolean;
-  onPrevious?: () => void;
-  onNext?: () => void;
-  disablePrevious?: boolean;
-  disableNext?: boolean;
-  rightContent?: any;
-}
 
 const SectionHeader: React.FC<SectionHeaderProps> = ({
   title,

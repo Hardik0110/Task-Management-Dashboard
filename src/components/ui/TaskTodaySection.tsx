@@ -1,5 +1,5 @@
 import React from 'react';
-import TaskDetailCard from './TaskDetailCard';
+import TaskDetailCard from '../common/shared/DetailedTaskCard';
 import SectionHeader from '../common/SectionHeader';
 import IconButton from './IconButton';
 import { taskToday } from '@/lib/data';
