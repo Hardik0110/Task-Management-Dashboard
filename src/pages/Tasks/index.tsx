@@ -71,14 +71,12 @@ const Task: React.FC<TaskProps> = ({ cardsToShow = 3 }) => {
     <div>
       <Header toggleSidebar={toggleSidebar} />
       <div className="p-6 space-y-6">
-        {/* New Task Section */}
         <TaskSection 
           title="New Task"
           tasks={upcomingTasks}
           cardsToShow={cardsToShow}
         />
         
-        {/* Recent Tasks Section */}
         <TaskSection 
           title="Recent Tasks"
           tasks={upcomingTasks}
