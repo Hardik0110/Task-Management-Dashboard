@@ -4,13 +4,20 @@ import { mentors } from "@/lib/data";
 import { useCarousel } from "@/hooks/use-carousel";
 import SectionHeader from "@/components/common/SectionHeader";
 import MentorCard from "@/components/common/shared/MentorCard";
+import {  MentorSectionProps } from "@/lib/types";
 
 
 
 
-const MentorSection = ({ title, carousel, gridClasses, isDetailed, data }:  any) => {
+const MentorSection: React.FC<MentorSectionProps> = ({ 
+  title, 
+  carousel, 
+  gridClasses, 
+  isDetailed, 
+  data 
+}) => {
   return (
-    <div className=" p-6 rounded-lg ">
+    <div className="p-6 rounded-lg">
       <SectionHeader
         title={title}
         hasNavigation={true}
@@ -20,7 +27,7 @@ const MentorSection = ({ title, carousel, gridClasses, isDetailed, data }:  any)
         disableNext={carousel.isLastPage}
       />
       <div className={`grid gap-4 ${gridClasses}`}>
-        {carousel.visibleItems(data).map((mentor: any) => (
+        {carousel.visibleItems(data).map((mentor) => (
           <MentorCard key={mentor.id} mentor={mentor} isDetailed={isDetailed} />
         ))}
       </div>

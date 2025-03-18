@@ -4,8 +4,11 @@ import SectionHeader from '../SectionHeader';
 import { useCarousel } from '@/hooks/use-carousel';
 import { upcomingTasks } from '@/lib/data';
 
-const UpcomingTasksSection: React.FC = () => {
-  const cardsToShow = 2;
+interface UpcomingTasksSectionProps {
+  cardsToShow?: number;
+}
+
+const UpcomingTasksSection: React.FC<UpcomingTasksSectionProps> = ({ cardsToShow = 2 }) => {
   const { 
     handlePrevious, 
     handleNext, 
@@ -28,7 +31,7 @@ const UpcomingTasksSection: React.FC = () => {
         disableNext={isLastPage}
       />
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className={`grid grid-cols-1 ${cardsToShow === 3 ? 'md:grid-cols-3' : 'md:grid-cols-2'} gap-4`}>
         {visibleItems(upcomingTasks).map((task) => (
           <TaskCard
             key={task.id}

@@ -1,6 +1,5 @@
-import {  ArrowLeft2,  ArrowRight2 } from "iconsax-react";
+import { ArrowLeft2, ArrowRight2 } from "iconsax-react";
 import { SectionHeaderProps } from "@/lib/types";
-
 
 const SectionHeader: React.FC<SectionHeaderProps> = ({
   title,
@@ -8,7 +7,8 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
   onPrevious,
   onNext,
   disablePrevious = false,
-  disableNext = false
+  disableNext = false,
+  rightContent
 }) => {
   return (
     <div className="flex justify-between items-center mb-4">
@@ -19,20 +19,24 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
           <button 
             onClick={onPrevious}
             disabled={disablePrevious}
-            className={`p-1  ${disablePrevious ? 'text-gray-300 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-100'}`}
+            className={`p-1 rounded-lg transition-colors ${disablePrevious ? 'text-gray-300 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-100'}`}
             aria-label="Previous"
           >
-            <ArrowLeft2 className="h-5 w-5" color="#333" />
+            <ArrowLeft2 className="h-5 w-5" color={disablePrevious ? "#ccc" : "#333"} />
           </button>
           <button 
             onClick={onNext}
             disabled={disableNext}
-            className={`p-1  ${disableNext ? 'text-gray-300 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-100'}`}
+            className={`p-1 rounded-lg transition-colors ${disableNext ? 'text-gray-300 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-100'}`}
             aria-label="Next"
           >
-            <ArrowRight2 className="h-5 w-5" color="#333" />
+            <ArrowRight2 className="h-5 w-5" color={disableNext ? "#ccc" : "#333"} />
           </button>
         </div>
+      )}
+      
+      {rightContent && (
+        <div>{rightContent}</div>
       )}
     </div>
   );

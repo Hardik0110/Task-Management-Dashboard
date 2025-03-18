@@ -4,8 +4,11 @@ import SectionHeader from '@/components/common/SectionHeader';
 import { useCarousel } from '@/hooks/use-carousel';
 import { mentors } from '@/lib/data';
 
-const MonthlyMentorsSection: React.FC = () => {
-  const cardsToShow = 2;
+interface MonthlyMentorsSectionProps {
+  cardsToShow?: number;
+}
+
+const MonthlyMentorsSection: React.FC<MonthlyMentorsSectionProps> = ({ cardsToShow = 2 }) => {
   const { 
     handlePrevious, 
     handleNext, 
@@ -28,7 +31,7 @@ const MonthlyMentorsSection: React.FC = () => {
         disableNext={isLastPage}
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className={`grid grid-cols-1 ${cardsToShow > 2 ? 'md:grid-cols-3' : 'md:grid-cols-2'} gap-4`}>
         {visibleItems(mentors).map((mentor) => (
           <div key={mentor.id} className="transition-all duration-300 ease-in-out">
             <MentorCard

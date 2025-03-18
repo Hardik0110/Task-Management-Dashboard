@@ -49,7 +49,6 @@ export const mentors: Mentor[] = [
     followed: false,
     image: avatar2,
     description: 'The description of the third mentor... , Writing this just to make the description longer',
-
   },
   {
     id: '4',
@@ -158,6 +157,44 @@ export const upcomingTasks: Task[] = [
       { name: 'Ryan Brown', avatar: avatar2 },
     ],
   },
+  {
+    id: '3',
+    title: 'Backend Architecture',
+    role: 'Senior Developer',
+    progress: 65,
+    daysLeft: 5,
+    image: Image1,
+    teamMembers: [
+      { name: 'John Smith', avatar: avatar3 },
+      { name: 'Melissa Brown', avatar: avatar1 },
+      { name: 'Robert Johnson', avatar: avatar2 },
+    ],
+  },
+  {
+    id: '4',
+    title: 'Data Analysis Project',
+    role: 'Data Scientist',
+    progress: 40,
+    daysLeft: 7,
+    image: Image2,
+    teamMembers: [
+      { name: 'Jennifer Lee', avatar: avatar2 },
+      { name: 'Michael Scott', avatar: avatar3 },
+    ],
+  },
+  {
+    id: '5',
+    title: 'Brand Redesign',
+    role: 'Art Director',
+    progress: 90,
+    daysLeft: 2,
+    image: Image3,
+    teamMembers: [
+      { name: 'Claire Wilson', avatar: avatar1 },
+      { name: 'James Taylor', avatar: avatar2 },
+      { name: 'Sophia Garcia', avatar: avatar3 },
+    ],
+  }
 ];
 
 export const taskToday: Task = {
@@ -175,9 +212,9 @@ export const taskToday: Task = {
     { name: 'Emily Wilson', avatar: avatar2 },
   ],
   steps: [
-    { number: 1, description: 'Understanding the tools in Figma' },
-    { number: 2, description: 'Understand the basics of making designs' },
-    { number: 3, description: 'Design a mobile application with figma' },
+    { number: 1, description: 'Understanding the tools in Figma', completed: true },
+    { number: 2, description: 'Understand the basics of making designs', completed: true },
+    { number: 3, description: 'Design a mobile application with figma', completed: false },
   ],
 };
 
