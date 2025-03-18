@@ -13,7 +13,7 @@ export const activityChartData: ChartDataPoint[] = [
   { day: "W", tasks: 2, average: 2.5 },
   { day: "T", tasks: 3, average: 1.7 },
   { day: "F", tasks: 2, average: 2.5 },
-  { day: "S", tasks: 2, average: 1.6 },
+  { day: "S", tasks: 0, average: 1.6 },
 ];
 
 export const mentors: Mentor[] = [

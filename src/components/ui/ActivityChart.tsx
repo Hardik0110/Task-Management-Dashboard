@@ -19,43 +19,54 @@ export function ActivityChart() {
         </div>
       </CardHeader>
       <CardContent>
-        <div className="h-[150px] bg-white rounded-lg p-2">
+        <div className="h-[165px] bg-white rounded-lg p-2">
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={activityChartData}>
+          <LineChart data={activityChartData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis 
                 dataKey="day"
                 axisLine={false}
                 tickLine={false}
-                stroke="#94a3b8"
+                stroke="#333"
                 tick={{ fontSize: 12 }}
               />
               <YAxis 
                 axisLine={false}
                 tickLine={false}
-                stroke="#94a3b8"
+                stroke="#333"
                 tick={{ fontSize: 12 }}
-                width={20}
+                width={28}
+                yAxisId="main"
+              />
+              <YAxis 
+                yAxisId="shadow"
+                orientation="left"
+                hide={true}
+                domain={['dataMin + 1', 'dataMax + 1']}
               />
               <Tooltip content={<ChartTooltip suffix=" Tasks" />} />
+              
               <Line
-                type="monotone"
-                dataKey="average"
-                stroke="#94a3b8"
-                strokeWidth={2}
-                dot={false}
-                strokeDasharray="5 5"
-              />
-              <Line
+                yAxisId="shadow"
                 type="monotone"
                 dataKey="tasks"
-                stroke="#3b82f6"
+                stroke="#33333325"
                 strokeWidth={2}
+                dot={false}
+                activeDot={false}
+              />
+              
+              <Line
+                yAxisId="main"
+                type="monotone"
+                dataKey="tasks"
+                stroke="#333"
+                strokeWidth={3}
                 dot={{
                   fill: "#3b82f6",
                   stroke: "white",
                   strokeWidth: 2,
-                  r: 4
+                  r: 5
                 }}
                 activeDot={{
                   fill: "#3b82f6",

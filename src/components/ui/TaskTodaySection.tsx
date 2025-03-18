@@ -1,9 +1,9 @@
 import React from 'react';
-import { MoreHorizontal } from 'lucide-react';
 import TaskDetailCard from './TaskDetailCard';
 import SectionHeader from '../common/SectionHeader';
 import IconButton from './IconButton';
 import { taskToday } from '@/lib/data';
+import { More } from 'iconsax-react';
 
 const TaskTodaySection: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const TaskTodaySection: React.FC = () => {
         title="Task Today"
         rightContent={
           <IconButton 
-            icon={<MoreHorizontal className="h-4 w-4" />}
+            icon={<More className="h-4 w-4" color='#333' />}
             ariaLabel="More options"
           />
         }

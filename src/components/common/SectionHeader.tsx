@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight } from "iconsax-react";
+import {  ArrowLeft2,  ArrowRight2 } from "iconsax-react";
 
 interface SectionHeaderProps {
   title: string;
@@ -27,18 +27,18 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
           <button 
             onClick={onPrevious}
             disabled={disablePrevious}
-            className={`p-1 rounded-full border ${disablePrevious ? 'text-gray-300 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-100'}`}
+            className={`p-1  ${disablePrevious ? 'text-gray-300 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-100'}`}
             aria-label="Previous"
           >
-            <ArrowLeft className="h-5 w-5" color="#333" />
+            <ArrowLeft2 className="h-5 w-5" color="#333" />
           </button>
           <button 
             onClick={onNext}
             disabled={disableNext}
-            className={`p-1 rounded-full border ${disableNext ? 'text-gray-300 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-100'}`}
+            className={`p-1  ${disableNext ? 'text-gray-300 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-100'}`}
             aria-label="Next"
           >
-            <ArrowRight className="h-5 w-5" color="#333" />
+            <ArrowRight2 className="h-5 w-5" color="#333" />
           </button>
         </div>
       )}

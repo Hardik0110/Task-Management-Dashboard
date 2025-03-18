@@ -32,14 +32,7 @@ const MonthlyMentorsSection: React.FC = () => {
         {visibleItems(mentors).map((mentor) => (
           <div key={mentor.id} className="transition-all duration-300 ease-in-out">
             <MentorCard
-              id={mentor.id}
-              name={mentor.name}
-              role={mentor.role}
-              taskCount={mentor.taskCount}
-              rating={mentor.rating}
-              reviews={mentor.reviews}
-              followed={mentor.followed}
-              image={mentor.image}
+              mentor={mentor}
             />
           </div>
         ))}

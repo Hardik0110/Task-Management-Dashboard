@@ -16,19 +16,26 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
           <span className="text-xs text-blue-600">{progress}%</span>
         </div>
       )}
-      <div 
+       <div 
         className={cn(
-          "w-full bg-gray-200 rounded-full",
+          "w-full bg-gray-200 rounded-full relative",
           height === 'sm' ? 'h-1' : 'h-2'
         )}
       >
         <div 
           className={cn(
-            "bg-blue-600 rounded-full",
+            "bg-blue-600 rounded-full relative",
             height === 'sm' ? 'h-1' : 'h-2'
           )}
           style={{ width: `${progress}%` }}
-        ></div>
+        >
+          <div 
+            className={cn(
+              "absolute bg-blue-600 rounded-full translate-x-1/2",
+              height === 'sm' ? 'w-2.5 h-2.5 -top-0.75 right-0' : 'w-3.5 h-3.5 -top-0.75 right-0'
+            )}
+          ></div>
+        </div>
       </div>
     </div>
   );

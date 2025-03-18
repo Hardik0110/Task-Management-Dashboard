@@ -26,11 +26,11 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-lg p-6">
+          <div className=" rounded-lg p-6">
             <MonthlyMentorsSection />
           </div>
 
-          <div className="bg-white rounded-lg p-6">
+          <div className=" rounded-lg p-6">
             <UpcomingTasksSection />
           </div>
         </div>
