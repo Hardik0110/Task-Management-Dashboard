@@ -11,8 +11,10 @@ import {
   CardTitle,
   CardDescription,
 } from '@/components/ui/card';
+import { useNavigate } from 'react-router-dom';
 
 const TaskDetailCard: React.FC<Task> = ({
+  id,
   title,
   role,
   progress,
@@ -21,6 +23,13 @@ const TaskDetailCard: React.FC<Task> = ({
   teamMembers = [],
   steps = [],
 }) => {
+
+      const navigate = useNavigate();
+
+      const handleGoToDetail = () => {
+        navigate(`/task/${id}`);
+      }
+      
   return (
     <Card className="overflow-hidden shadow-sm">
       <img 
@@ -68,7 +77,9 @@ const TaskDetailCard: React.FC<Task> = ({
       </CardContent>
 
       <CardFooter className="mt-auto">
-        <button className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors">
+        <button 
+          onClick={handleGoToDetail}
+          className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors" >
           Go To Detail
         </button>
       </CardFooter>

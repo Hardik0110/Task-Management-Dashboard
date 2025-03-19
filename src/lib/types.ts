@@ -16,7 +16,7 @@ export interface Mentor {
 }
 
 export interface Task {
-  id: string;
+  id: string | number;
   title: string;
   role: string;
   progress: number;

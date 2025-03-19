@@ -8,7 +8,7 @@ export const sidebarLinks = [
   { name: "Settings", path: "/settings", icon: Setting2 },
 ];
 
-export const dashboardRoutes = ["/", "/task", "/mentors", "/message", "/settings"];
+export const dashboardRoutes = ["/", "/task", "/mentors", "/message", "/settings", "/task/:taskId"];
 
 export const DAYS_OF_WEEK = [
     { key: "1", label: "S" },
@@ -27,4 +27,5 @@ export const DAYS_OF_WEEK = [
     "/mentors": "Explore Mentors",
     "/message": "Your Messages",
     "/settings": "Settings & Preferences",
+    "/task/:taskId": "Task Details"
   };

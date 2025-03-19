@@ -66,13 +66,13 @@ const Task: React.FC<TaskProps> = ({ cardsToShow = 3 }) => {
       <div className="p-6 space-y-6">
         <TaskSection 
           title="New Task"
-          tasks={upcomingTasks}
+          tasks={upcomingTasks.map(task => ({ ...task, id: String(task.id) }))}
           cardsToShow={cardsToShow}
         />
         
         <TaskSection 
           title="Recent Tasks"
-          tasks={upcomingTasks}
+          tasks={upcomingTasks.map(task => ({ ...task, id: String(task.id) }))}
           cardsToShow={cardsToShow}
         />
       </div>

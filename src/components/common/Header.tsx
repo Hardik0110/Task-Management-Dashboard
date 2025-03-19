@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, matchPath } from "react-router-dom";
 import { HambergerMenu, Notification, ProfileCircle, SearchNormal, Sort } from "iconsax-react";
 import { useIsMobile } from "@/hooks/use-mobile"; 
 import { pageMessages } from "@/lib/constants";
@@ -14,9 +14,12 @@ const Header = ({ toggleSidebar }: HeaderProps) => {
   const userName = "Hardik Kubavat";
   const isMobile = useIsMobile();
 
-  const pageTitle = pageMessages[location.pathname as keyof typeof pageMessages] || "let's finish your task today!";
+  const pageTitle = pageMessages[location.pathname as keyof typeof pageMessages] ;
   const isDashboard = location.pathname === "/";
-  const showEnhancedHeader = location.pathname === "/mentors" || location.pathname === "/task";
+  const showEnhancedHeader = 
+    location.pathname === "/mentors" || 
+    location.pathname === "/task" || 
+    matchPath("/task/:taskId", location.pathname);
 
   return (
     <Card className="bg-white p-6">

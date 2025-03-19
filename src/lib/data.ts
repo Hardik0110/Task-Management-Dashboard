@@ -223,3 +223,10 @@ export const runningTaskStats = {
   completedTasks: 65,
   progressPercentage: 45
 };
+
+export const studentDetails = {
+  name: "Dennis Nicoli",
+  class: "XIPA 2",
+  number: "10",
+  lastModified: "1 July 2022"
+};

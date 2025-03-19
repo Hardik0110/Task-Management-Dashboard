@@ -1,4 +1,4 @@
-import { Outlet, useLocation, useOutletContext } from "react-router-dom";
+import { Outlet, useLocation, useOutletContext, matchPath } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Sidebar from "../components/common/Sidebar";
 import { dashboardRoutes } from "../lib/constants";
@@ -13,6 +13,10 @@ const MainLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const isMobile = useIsMobile();
 
+  const isRouteAllowed = dashboardRoutes.some(route => 
+    matchPath({ path: route, end: false }, location.pathname)
+  )
+
   useEffect(() => {
     if (isMobile) {
       setIsSidebarOpen(false);
@@ -26,7 +30,7 @@ const MainLayout = () => {
   return (
     <div className="min-h-screen bg-[#F5F5F7]">
       <div className="flex">
-        {dashboardRoutes.includes(location.pathname) && (
+      {isRouteAllowed && (
           <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
         )}
 
