@@ -10,7 +10,7 @@ import {
   CardFooter,
   CardTitle,
   CardDescription,
-} from '@/components/ui/card';
+} from '@/components/ui/Card';
 import { useNavigate } from 'react-router-dom';
 
 const TaskDetailCard: React.FC<Task> = ({
@@ -29,7 +29,7 @@ const TaskDetailCard: React.FC<Task> = ({
       const handleGoToDetail = () => {
         navigate(`/task/${id}`);
       }
-      
+
   return (
     <Card className="overflow-hidden shadow-sm">
       <img 

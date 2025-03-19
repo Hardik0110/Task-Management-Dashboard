@@ -21,6 +21,7 @@ export const DAYS_OF_WEEK = [
   ];
 
   const welcomeMessage = `let's finish your task today!`;
+  
   export const pageMessages: Record<string, string> = {
     "/": welcomeMessage,
     "/task": "Explore Tasks",

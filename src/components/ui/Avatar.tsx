@@ -8,12 +8,7 @@ export const Avatar: React.FC<AvatarProps> = ({
   size = 'md',
   className 
 }) => {
-  const sizeClasses = {
-    xs: 'w-5 h-5',
-    sm: 'w-6 h-6',
-    md: 'w-8 h-8',
-    lg: 'w-12 h-12'
-  };
+
 
   return (
     <div 

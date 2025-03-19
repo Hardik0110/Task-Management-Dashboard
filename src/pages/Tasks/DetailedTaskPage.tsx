@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useMainLayout } from "@/layout/MainLayout";
 import Header from "@/components/common/Header";
 import { taskToday } from '@/lib/data';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/Card';
 import { Profile2User , Clock , TickCircle , DocumentUpload , ArrowLeft} from 'iconsax-react';
 import { studentDetails } from '@/lib/data';
 

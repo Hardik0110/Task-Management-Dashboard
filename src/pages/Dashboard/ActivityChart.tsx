@@ -1,5 +1,5 @@
 import { CartesianGrid, Line, LineChart, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { ArrowRight2 } from "iconsax-react";
 import ChartTooltip from "../../components/features/ChartTooltip";
 import { activityChartData } from "@/lib/data";

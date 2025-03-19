@@ -61,6 +61,7 @@ export interface AvatarProps {
   alt?: string;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' ;
   className?: string;
+ 
 }
 
 export interface AvatarStackProps {

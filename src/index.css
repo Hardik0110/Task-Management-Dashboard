@@ -12,7 +12,6 @@ body {
   @apply bg-[#F5F5F7];
 }
 
-/* Mobile adjustments */
 @media (max-width: 768px) {
   html {
     font-size: 14px;

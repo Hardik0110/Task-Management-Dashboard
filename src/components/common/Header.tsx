@@ -3,7 +3,7 @@ import { HambergerMenu, Notification, ProfileCircle, SearchNormal, Sort } from "
 import { useIsMobile } from "@/hooks/use-mobile"; 
 import { pageMessages } from "@/lib/constants";
 import { Element2 } from "iconsax-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/Card";
 
 interface HeaderProps {
   toggleSidebar?: () => void; 
@@ -14,7 +14,7 @@ const Header = ({ toggleSidebar }: HeaderProps) => {
   const userName = "Hardik Kubavat";
   const isMobile = useIsMobile();
 
-  const pageTitle = pageMessages[location.pathname as keyof typeof pageMessages] ;
+  const pageTitle = pageMessages[location.pathname as keyof typeof pageMessages] || "Task Details";
   const isDashboard = location.pathname === "/";
   const showEnhancedHeader = 
     location.pathname === "/mentors" || 
