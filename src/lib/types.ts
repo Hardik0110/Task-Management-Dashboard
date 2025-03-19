@@ -59,7 +59,7 @@ export interface ProgressBarProps {
 export interface AvatarProps {
   src?: string;
   alt?: string;
-  size?: 'xs' | 'sm' | 'md' | 'lg';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' ;
   className?: string;
 }
 
@@ -89,4 +89,14 @@ export interface MentorSectionProps {
   gridClasses: string;
   isDetailed: boolean;
   data: Mentor[];
+}
+
+export type TaskType = {
+  teamMembers: TeamMember[];
+  id: string;
+  title: string;
+  role: string;
+  progress: number;
+  daysLeft: number;
+  image: string;
 }

@@ -37,15 +37,17 @@ const MentorSection: React.FC<MentorSectionProps> = ({
 
 const Mentors = () => {
   const { toggleSidebar } = useMainLayout();
+  const isMobile = window.innerWidth < 768;
 
   const recentMentorsCarousel = useCarousel({
     totalItems: mentors.length,
-    itemsPerPage: 3,
+    itemsPerPage: isMobile ? 1 : 3,
   });
 
   const detailedMentorsCarousel = useCarousel({
     totalItems: mentors.length,
-    itemsPerPage: 6,
+    itemsPerPage: isMobile ? 3 : 6,
+    forceItemsPerPage: true,
   });
 
   return (

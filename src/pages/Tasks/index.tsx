@@ -4,15 +4,7 @@ import SectionHeader from "@/components/common/SectionHeader";
 import { useCarousel } from "@/hooks/use-carousel";
 import { upcomingTasks } from "@/lib/data";
 import TaskCard from "@/components/common/shared/TaskCard";
-
-type TaskType = {
-  id: string;
-  title: string;
-  role: string;
-  progress: number;
-  daysLeft: number;
-  image: string;
-};
+import { TaskType } from "@/lib/types";
 
 type TaskSectionProps = {
   title: string;
@@ -29,7 +21,8 @@ const TaskSection: React.FC<TaskSectionProps> = ({ title, tasks, cardsToShow }) 
     visibleItems 
   } = useCarousel({
     totalItems: tasks.length,
-    itemsPerPage: cardsToShow,
+    itemsPerPage: window.innerWidth < 768 ? 1 : cardsToShow,
+    
   });
 
   return (

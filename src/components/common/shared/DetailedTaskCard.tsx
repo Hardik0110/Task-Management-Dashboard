@@ -2,7 +2,15 @@ import React from 'react';
 import { Clock } from 'lucide-react';
 import { Task } from '@/lib/types';
 import ProgressBar from './ProgressBar';
-import { AvatarStack } from './Avatar';
+import { AvatarStack } from '../../ui/Avatar';
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardFooter,
+  CardTitle,
+  CardDescription,
+} from '@/components/ui/card';
 
 const TaskDetailCard: React.FC<Task> = ({
   title,
@@ -14,26 +22,26 @@ const TaskDetailCard: React.FC<Task> = ({
   steps = [],
 }) => {
   return (
-    <div className="bg-white rounded-lg overflow-hidden shadow-sm">
+    <Card className="overflow-hidden shadow-sm">
       <img 
         src={image} 
         alt={title} 
         className="w-full h-40 object-cover"
       />
       
-      <div className="p-4">
-        <h3 className="font-semibold">{title}</h3>
-        <p className="text-xs text-gray-500">{role}</p>
+      <CardHeader>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>{role}</CardDescription>
+      </CardHeader>
+      
+      <CardContent className="space-y-4">
+        <ProgressBar 
+          progress={progress} 
+          showLabel={true}
+          height="md"
+        />
         
-        <div className="mt-4">
-          <ProgressBar 
-            progress={progress} 
-            showLabel={true}
-            height="md"
-          />
-        </div>
-        
-        <div className="flex items-center mt-4">
+        <div className="flex items-center">
           <Clock className="h-4 w-4 text-gray-500 mr-1" />
           <span className="text-sm">{timeLeft}</span>
           
@@ -42,7 +50,7 @@ const TaskDetailCard: React.FC<Task> = ({
           </div>
         </div>
         
-        <div className="mt-6">
+        <div>
           <h4 className="text-sm font-medium mb-3">Detail Task</h4>
           <p className="text-xs text-gray-500 mb-2">{role}</p>
           
@@ -56,13 +64,15 @@ const TaskDetailCard: React.FC<Task> = ({
               </li>
             ))}
           </ol>
-          
-          <button className="w-full bg-blue-600 text-white py-3 rounded-lg mt-6 hover:bg-blue-700 transition-colors">
-            Go To Detail
-          </button>
         </div>
-      </div>
-    </div>
+      </CardContent>
+
+      <CardFooter className="mt-auto">
+        <button className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors">
+          Go To Detail
+        </button>
+      </CardFooter>
+    </Card>
   );
 };
 
