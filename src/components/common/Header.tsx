@@ -30,7 +30,7 @@ const Header = ({ toggleSidebar }: HeaderProps) => {
               <button 
                 onClick={toggleSidebar}
                 className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-                aria-label="Toggle sidebar"
+                aria-label="Toggle sidebar"              
               >
                 <HambergerMenu className="w-6 h-6 " color="gray" />
               </button>
