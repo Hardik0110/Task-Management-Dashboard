@@ -3,16 +3,16 @@ import { useForm } from "react-hook-form";
 import { useMainLayout } from "@/hooks/use-mainlayout";
 import Header from "@/components/common/Header";
 import SectionHeader from "@/components/common/SectionHeader";
-import { ChevronDown } from "lucide-react";
+import { ArrowDown2 } from "iconsax-react";
 import Button from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import { Toggle } from "@/components/ui/Toggle";
 
 const Settings: FC = () => {
   const { toggleSidebar } = useMainLayout();
-  const [activeSection, setActiveSection] = useState("general");
-  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
-  const [isTimezoneOpen, setIsTimezoneOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("general")
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false)
+  const [isTimezoneOpen, setIsTimezoneOpen] = useState(false)
   const [notifications, setNotifications] = useState({
     message: true,
     taskUpdate: false,
@@ -28,13 +28,13 @@ const Settings: FC = () => {
     }
   });
 
-  const languages = ["English (Default)", "Spanish", "French"];
-  const timezones = ["English (Default)", "UTC", "GMT"];
+  const languages = ["English (Default)", "Spanish", "French"]
+  const timezones = ["English (Default)", "UTC", "GMT"]
   
-  const currentTimeFormat = watch("timeFormat");
+  const currentTimeFormat = watch("timeFormat")
 
   const onSubmit = (data: { language: string; timezone: string; timeFormat: string }) => {
-    console.log("Form data:", data);
+    console.log("Form data:", data)
   };
 
   const selectOption = (field: "language" | "timezone", value: string) => {
@@ -62,7 +62,7 @@ const Settings: FC = () => {
         className="w-96 text-left flex items-center justify-between"
       >
         <span>{watch(field)}</span>
-        <ChevronDown className={cn("w-4 h-4 transition-transform", isOpen && "rotate-180")} />
+        <ArrowDown2 className={cn("w-4 h-4 transition-transform", isOpen && "rotate-180")} color="blue" />
       </Button>
       {isOpen && (
         <div className="absolute z-10 w-96 mt-1 bg-white border rounded-lg shadow-lg">
