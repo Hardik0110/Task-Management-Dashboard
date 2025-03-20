@@ -5,7 +5,7 @@ import MonthlyMentorsSection from "./MonthlyMentorsSection";
 import UpcomingTasksSection from "@/components/common/shared/UpcomingTasksSection";
 import TaskTodaySection from "@/components/ui/TaskTodaySection";
 import Header from "../../components/common/Header";
-import { useMainLayout } from "@/layout/MainLayout";
+import { useMainLayout } from "@/hooks/use-mainlayout";
 
 const Dashboard = () => {
   const { toggleSidebar } = useMainLayout();

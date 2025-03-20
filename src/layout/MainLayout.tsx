@@ -1,16 +1,14 @@
-import { Outlet, useLocation, useOutletContext, matchPath } from "react-router-dom";
+import { Outlet, useLocation, matchPath } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Sidebar from "../components/common/Sidebar";
 import { dashboardRoutes } from "../lib/constants";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-type ContextType = {
-  toggleSidebar: () => void;
-};
+
 
 const MainLayout = () => {
   const location = useLocation();
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const isMobile = useIsMobile();
 
   const isRouteAllowed = dashboardRoutes.some(route => 
@@ -46,7 +44,3 @@ const MainLayout = () => {
 };
 
 export default MainLayout;
-
-export function useMainLayout() {
-  return useOutletContext<ContextType>();
-}

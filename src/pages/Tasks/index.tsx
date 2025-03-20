@@ -1,4 +1,4 @@
-import { useMainLayout } from "@/layout/MainLayout";
+import { useMainLayout } from "@/hooks/use-mainlayout";
 import Header from "@/components/common/Header";
 import SectionHeader from "@/components/common/SectionHeader";
 import { useCarousel } from "@/hooks/use-carousel";
