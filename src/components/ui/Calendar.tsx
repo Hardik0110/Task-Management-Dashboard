@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   format,
   addWeeks,
@@ -7,12 +7,12 @@ import {
   startOfWeek,
   endOfWeek,
 } from "date-fns";
-import { ArrowRight2 , ArrowLeft2 } from "iconsax-react";
+import { ArrowRight2, ArrowLeft2 } from "iconsax-react";
 import { DAYS_OF_WEEK } from "@/lib/constants";
 
-const Calendar = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [currentWeek, setCurrentWeek] = useState(new Date());
+const Calendar: React.FC = () => {
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const [currentWeek, setCurrentWeek] = useState<Date>(new Date());
 
   const weekDays = eachDayOfInterval({
     start: startOfWeek(currentWeek, { weekStartsOn: 0 }),
@@ -20,7 +20,7 @@ const Calendar = () => {
   });
 
   return (
-    <div className="bg-white p-3 sm:p-4 rounded-lg  w-full overflow-hidden">
+    <div className="bg-white p-3 sm:p-4 rounded-lg w-full overflow-hidden">
       <div className="flex justify-between items-center mb-4">
         <button onClick={() => setCurrentWeek(subWeeks(currentWeek, 1))}>
           <ArrowLeft2 className="h-5 w-5" color="#333"/>

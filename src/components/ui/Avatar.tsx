@@ -3,15 +3,12 @@ import { cn } from '@/lib/utils';
 import { AvatarProps, AvatarStackProps } from '@/lib/types';
 import { sizeClasses } from '@/lib/constants';
 
-
 export const Avatar: React.FC<AvatarProps> = ({ 
   src, 
   alt = 'Avatar',
   size = 'md',
   className 
 }) => {
-
-
   return (
     <div 
       className={cn(

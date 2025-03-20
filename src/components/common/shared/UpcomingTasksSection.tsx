@@ -3,10 +3,7 @@ import TaskCard from './TaskCard';
 import SectionHeader from '../SectionHeader';
 import { useCarousel } from '@/hooks/use-carousel';
 import { upcomingTasks } from '@/lib/data';
-
-interface UpcomingTasksSectionProps {
-  cardsToShow?: number;
-}
+import { UpcomingTasksSectionProps } from '@/lib/types';
 
 const UpcomingTasksSection: React.FC<UpcomingTasksSectionProps> = ({ cardsToShow = 2 }) => {
   const { 

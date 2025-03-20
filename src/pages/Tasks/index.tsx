@@ -4,13 +4,7 @@ import SectionHeader from "@/components/common/SectionHeader";
 import { useCarousel } from "@/hooks/use-carousel";
 import { upcomingTasks } from "@/lib/data";
 import TaskCard from "@/components/common/shared/TaskCard";
-import { TaskType } from "@/lib/types";
-
-type TaskSectionProps = {
-  title: string;
-  tasks: TaskType[];
-  cardsToShow: number;
-};
+import {  TaskSectionProps, TaskPageProps } from "@/lib/types";
 
 const TaskSection: React.FC<TaskSectionProps> = ({ title, tasks, cardsToShow }) => {
   const { 
@@ -53,11 +47,7 @@ const TaskSection: React.FC<TaskSectionProps> = ({ title, tasks, cardsToShow }) 
   );
 };
 
-type TaskProps = {
-  cardsToShow?: number;
-};
-
-const Task: React.FC<TaskProps> = ({ cardsToShow = 3 }) => {
+const Task: React.FC<TaskPageProps> = ({ cardsToShow = 3 }) => {
   const { toggleSidebar } = useMainLayout();
 
   return (

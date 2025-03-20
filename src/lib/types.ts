@@ -101,3 +101,48 @@ export type TaskType = {
   daysLeft: number;
   image: string;
 }
+
+import { TooltipProps } from "recharts";
+import { ReactNode } from "react";
+
+export interface EnhancedTooltipProps extends TooltipProps<number | string | Array<number | string>, string> {
+  suffix?: string;
+  className?: string;
+}
+
+export interface ChartConfig {
+  [key: string]: {
+    label: string;
+    color: string;
+  }
+}
+
+export interface ChartContainerProps {
+  config: ChartConfig;
+  children: ReactNode;
+}
+
+export interface TaskSectionProps {
+  title: string;
+  tasks: TaskType[];
+  cardsToShow: number;
+}
+
+export interface TaskPageProps {
+  cardsToShow?: number;
+}
+
+export interface TaskDetailCardProps {
+  id: string;
+  title: string;
+  role: string;
+  progress: number;
+  timeLeft: string;
+  image: string;
+  teamMembers?: TeamMember[];
+  steps?: {
+    number: number;
+    description: string;
+    completed: boolean;
+  }[];
+}

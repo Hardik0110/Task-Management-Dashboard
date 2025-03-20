@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardContent,
   CardFooter,
-} from '@/components/ui/Card'; 
+} from '@/components/ui/Card';
 
 const TaskCard: React.FC<Task> = ({
   title,

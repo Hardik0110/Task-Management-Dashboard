@@ -1,3 +1,4 @@
+import React from "react";
 import { ArrowLeft2, ArrowRight2 } from "iconsax-react";
 import { SectionHeaderProps } from "@/lib/types";
 

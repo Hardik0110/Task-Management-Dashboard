@@ -1,27 +1,16 @@
-import { ReactNode } from "react"
 import { TooltipProps } from "recharts"
-
-export interface ChartConfig {
-  [key: string]: {
-    label: string
-    color: string
-  }
-}
-
-interface ChartContainerProps {
-  config: ChartConfig
-  children: ReactNode
-}
+import {  ChartContainerProps } from "@/lib/types"
+import { CSSProperties } from "react"
 
 export function ChartContainer({ config, children }: ChartContainerProps) {
   return (
-    <div style={{ "--chart-1": config[Object.keys(config)[0]].color } as any}>
+    <div style={{ "--chart-1": config[Object.keys(config)[0]].color } as CSSProperties}>
       {children}
     </div>
   )
 }
 
-export function ChartTooltip(props: TooltipProps<any, any>) {
+export function ChartTooltip(props: TooltipProps<number, string>) {
   return props.active ? (
     <div className="rounded-lg border bg-background p-2 shadow-sm">
       {props.payload?.map((entry) => (
@@ -34,6 +23,6 @@ export function ChartTooltip(props: TooltipProps<any, any>) {
   ) : null
 }
 
-export function ChartTooltipContent(props: TooltipProps<any, any>) {
+export function ChartTooltipContent(props: TooltipProps<number, string>) {
   return <ChartTooltip {...props} />
 }

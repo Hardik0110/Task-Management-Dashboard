@@ -1,15 +1,12 @@
+import React from "react";
 import { useLocation, matchPath } from "react-router-dom";
-import { HambergerMenu, Notification, ProfileCircle, SearchNormal, Sort } from "iconsax-react";
+import { HambergerMenu, Notification, ProfileCircle, SearchNormal, Sort, Element2 } from "iconsax-react";
 import { useIsMobile } from "@/hooks/use-mobile"; 
 import { pageMessages } from "@/lib/constants";
-import { Element2 } from "iconsax-react";
 import { Card, CardContent } from "@/components/ui/Card";
+import { HeaderProps } from "@/lib/types";
 
-interface HeaderProps {
-  toggleSidebar?: () => void; 
-}
-
-const Header = ({ toggleSidebar }: HeaderProps) => {
+const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
   const location = useLocation();
   const userName = "Hardik Kubavat";
   const isMobile = useIsMobile();
@@ -19,7 +16,7 @@ const Header = ({ toggleSidebar }: HeaderProps) => {
   const showEnhancedHeader = 
     location.pathname === "/mentors" || 
     location.pathname === "/task" || 
-    matchPath("/task/:taskId", location.pathname);
+    matchPath("/task/:taskId", location.pathname) !== null;
 
   return (
     <Card className="bg-white p-6">

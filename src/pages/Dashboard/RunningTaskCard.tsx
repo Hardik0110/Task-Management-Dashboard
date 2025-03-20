@@ -1,5 +1,6 @@
+import React from 'react';
 
-const RunningTaskCard = () => {
+const RunningTaskCard: React.FC = () => {
   const totalTasks = 100;
   const completedTasks = 65;
   const progressPercentage = 45; 

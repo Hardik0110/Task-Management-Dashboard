@@ -1,10 +1,5 @@
 import React from 'react';
-import { TooltipProps } from 'recharts';
-
-interface EnhancedTooltipProps extends TooltipProps<any, any> {
-  suffix?: string;
-  className?: string;
-}
+import { EnhancedTooltipProps } from '@/lib/types';
 
 export const ChartTooltip: React.FC<EnhancedTooltipProps> = ({ 
   active, 

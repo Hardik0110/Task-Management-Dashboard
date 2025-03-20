@@ -1,16 +1,12 @@
-import { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Book1, MessageQuestion } from "iconsax-react";
 import { X } from "lucide-react";
 import { sidebarLinks } from "../../lib/constants";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { SidebarProps } from "@/lib/types";
 
-interface SidebarProps {
-  isOpen: boolean;
-  setIsOpen: (isOpen: boolean) => void;
-}
-
-const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
   const sidebarRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
 

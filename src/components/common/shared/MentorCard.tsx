@@ -2,7 +2,7 @@ import React from 'react';
 import { Star } from 'lucide-react';
 import { Notepad2 } from 'iconsax-react';
 import { Avatar } from '../../ui/Avatar';
-import { Mentor } from '@/lib/types';
+import { MentorCardProps } from '@/lib/types';
 import {
   Card,
   CardHeader,
@@ -10,11 +10,6 @@ import {
   CardTitle,
   CardDescription,
 } from '@/components/ui/Card';
-
-interface MentorCardProps {
-  mentor: Mentor;
-  isDetailed?: boolean;
-}
 
 const MentorCard: React.FC<MentorCardProps> = ({ mentor, isDetailed = false }) => {
   return (

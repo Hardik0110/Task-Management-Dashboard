@@ -1,6 +1,6 @@
 import React from 'react';
 import { Clock } from 'lucide-react';
-import { Task } from '@/lib/types';
+import { TaskDetailCardProps } from '@/lib/types';
 import ProgressBar from './ProgressBar';
 import { AvatarStack } from '../../ui/Avatar';
 import {
@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/Card';
 import { useNavigate } from 'react-router-dom';
 
-const TaskDetailCard: React.FC<Task> = ({
+const TaskDetailCard: React.FC<TaskDetailCardProps> = ({
   id,
   title,
   role,
@@ -23,12 +23,11 @@ const TaskDetailCard: React.FC<Task> = ({
   teamMembers = [],
   steps = [],
 }) => {
+  const navigate = useNavigate();
 
-      const navigate = useNavigate();
-
-      const handleGoToDetail = () => {
-        navigate(`/task/${id}`);
-      }
+  const handleGoToDetail = () => {
+    navigate(`/task/${id}`);
+  };
 
   return (
     <Card className="overflow-hidden shadow-sm">
