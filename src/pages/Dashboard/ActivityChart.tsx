@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { ArrowRight2 } from "iconsax-react";
 import ChartTooltip from "../../components/features/ChartTooltip";
 import { activityChartData } from "@/lib/data";
-import IconButton from "../../components/ui/IconButton";
+import Button from "@/components/ui/Button";
 
 export function ActivityChart() {
   return (
@@ -12,8 +12,9 @@ export function ActivityChart() {
         <CardTitle className="text-sm font-medium">Activity</CardTitle>
         <div className="flex items-center text-xs text-gray-500">
           This Week
-          <IconButton 
-            icon={<ArrowRight2 className="h-4 w-4" color="#333" />} 
+          <Button 
+            variant="icon"
+            icon={<ArrowRight2 className="h-4 w-4" color="#333" />}
             ariaLabel="View more"
           />
         </div>

@@ -1,8 +1,9 @@
-import React from "react";
+import { FC } from 'react';
 import { ArrowLeft2, ArrowRight2 } from "iconsax-react";
+import Button from "@/components/ui/Button";
 import { SectionHeaderProps } from "@/lib/types";
 
-const SectionHeader: React.FC<SectionHeaderProps> = ({
+const SectionHeader: FC<SectionHeaderProps> = ({
   title,
   hasNavigation = false,
   onPrevious,
@@ -16,29 +17,25 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
       <h2 className="text-xl font-semibold">{title}</h2>
       
       {hasNavigation && (
-        <div className="flex space-x-2">
-          <button 
+        <div className="flex gap-2">
+          <Button
+            variant="icon"
             onClick={onPrevious}
             disabled={disablePrevious}
-            className={`p-1 rounded-lg transition-colors ${disablePrevious ? 'text-gray-300 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-100'}`}
-            aria-label="Previous"
-          >
-            <ArrowLeft2 className="h-5 w-5" color={disablePrevious ? "#ccc" : "#333"} />
-          </button>
-          <button 
+            icon={<ArrowLeft2 className="h-5 w-5" color={disablePrevious ? "#ccc" : "#333"} />}
+            ariaLabel="Previous"
+          />
+          <Button
+            variant="icon"
             onClick={onNext}
             disabled={disableNext}
-            className={`p-1 rounded-lg transition-colors ${disableNext ? 'text-gray-300 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-100'}`}
-            aria-label="Next"
-          >
-            <ArrowRight2 className="h-5 w-5" color={disableNext ? "#ccc" : "#333"} />
-          </button>
+            icon={<ArrowRight2 className="h-5 w-5" color={disableNext ? "#ccc" : "#333"} />}
+            ariaLabel="Next"
+          />
         </div>
       )}
       
-      {rightContent && (
-        <div>{rightContent}</div>
-      )}
+      {rightContent && rightContent}
     </div>
   );
 };

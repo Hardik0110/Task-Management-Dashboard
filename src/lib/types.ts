@@ -146,3 +146,12 @@ export interface TaskDetailCardProps {
     completed: boolean;
   }[];
 }
+
+export interface HeaderProps {
+  toggleSidebar?: () => void;
+}
+
+export interface SidebarProps {
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+}
