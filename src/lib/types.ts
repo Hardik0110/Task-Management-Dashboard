@@ -1,3 +1,7 @@
+import { ButtonHTMLAttributes, ReactNode } from 'react';
+import { TooltipProps } from "recharts";
+
+
 export interface TeamMember {
   name: string;
   avatar: string;
@@ -102,8 +106,8 @@ export type TaskType = {
   image: string;
 }
 
-import { TooltipProps } from "recharts";
-import { ReactNode } from "react";
+
+
 
 export interface EnhancedTooltipProps extends TooltipProps<number | string | Array<number | string>, string> {
   suffix?: string;
@@ -154,4 +158,29 @@ export interface HeaderProps {
 export interface SidebarProps {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
+}
+
+export type ButtonVariant = 'primary' | 'outline' | 'radio' | 'icon' | 'tab';
+
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonVariant;
+  children?: ReactNode;
+  selected?: boolean;
+  className?: string;
+  icon?: ReactNode;
+  ariaLabel?: string;
+}
+
+export interface MentorCardProps {
+  mentor: {
+    image: string;
+    name: string;
+    role: string;
+    followed: boolean;
+    description: string;
+    taskCount: number;
+    rating: number;
+    reviews: number;
+  };
+  isDetailed?: boolean;
 }

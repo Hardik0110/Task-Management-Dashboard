@@ -1,16 +1,7 @@
-import { ButtonHTMLAttributes, ReactNode, forwardRef } from 'react';
+import { forwardRef } from 'react';
 import { cn } from '@/lib/utils';
+import { ButtonProps , ButtonVariant} from '@/lib/types';
 
-type ButtonVariant = 'primary' | 'outline' | 'radio' | 'icon' | 'tab';
-
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: ButtonVariant;
-  children?: ReactNode;
-  selected?: boolean;
-  className?: string;
-  icon?: ReactNode;
-  ariaLabel?: string;
-}
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
   variant = 'primary',

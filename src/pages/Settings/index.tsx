@@ -6,12 +6,19 @@ import SectionHeader from "@/components/common/SectionHeader";
 import { ChevronDown } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
+import { Toggle } from "@/components/ui/Toggle";
 
 const Settings: FC = () => {
   const { toggleSidebar } = useMainLayout();
   const [activeSection, setActiveSection] = useState("general");
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isTimezoneOpen, setIsTimezoneOpen] = useState(false);
+  const [notifications, setNotifications] = useState({
+    message: true,
+    taskUpdate: false,
+    taskDeadline: true,
+    mentorHelp: false
+  });
 
   const { register, handleSubmit, setValue, watch } = useForm({
     defaultValues: {
@@ -40,6 +47,13 @@ const Settings: FC = () => {
   const selectTimezone = (zone: string) => {
     setValue("timezone", zone);
     setIsTimezoneOpen(false);
+  };
+
+  const handleNotificationChange = (key: keyof typeof notifications) => {
+    setNotifications(prev => ({
+      ...prev,
+      [key]: !prev[key]
+    }));
   };
 
   return (
@@ -202,11 +216,65 @@ const Settings: FC = () => {
             )}
 
             {activeSection === "notifications" && (
-              <div className="mt-4">
-                <h3 className="text-lg font-semibold">Notification Settings</h3>
-                {/* Add notification settings here */}
+              <div className="mt-4 space-y-6">
+                <h3 className="text-lg font-semibold mb-4">Notification Settings</h3>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4 py-3">
+                    <Toggle 
+                      pressed={notifications.message}
+                      onPressedChange={() => handleNotificationChange('message')}
+                    />
+                    <div>
+                      <h4 className="text-sm font-medium text-gray-900">Message Notifications</h4>
+                    </div>
+                  
+                  </div>
+
+                  <div className="flex items-center gap-4 py-3">
+                    <Toggle 
+                      pressed={notifications.taskUpdate}
+                      onPressedChange={() => handleNotificationChange('taskUpdate')}
+                    />
+                    <div>
+                      <h4 className="text-sm font-medium text-gray-900">Task Update </h4>
+                    </div>
+                    
+                  </div>
+
+                  <div className="flex items-center gap-4 py-3">
+                    <Toggle 
+                      pressed={notifications.taskDeadline}
+                      onPressedChange={() => handleNotificationChange('taskDeadline')}
+                    />  
+                    <div>
+                      <h4 className="text-sm font-medium text-gray-900">Task Deadline Notifications</h4>
+                    </div>
+                    
+                  </div>
+
+                  <div className="flex items-center gap-4 py-3">
+                    <Toggle 
+                      pressed={notifications.mentorHelp}
+                      onPressedChange={() => handleNotificationChange('mentorHelp')}
+                    />
+                    <div>
+                      <h4 className="text-sm font-medium text-gray-900">Mentor Help Notifications</h4>
+                    </div>
+                    
+                  </div>
+                </div>
+
+                <Button
+                  type="button"
+                  variant="primary"
+                  onClick={() => console.log('Saving notification settings:', notifications)}
+                  className="mt-6"
+                >
+                  Save Changes
+                </Button>
               </div>
-            )}
+            )}  
           </form>
         </div>
       </div>
