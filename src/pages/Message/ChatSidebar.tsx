@@ -5,16 +5,17 @@ import { SearchNormal1 } from "iconsax-react";
 import Header from "@/components/common/Header";
 import { useMainLayout } from "@/hooks/use-mainlayout";
 import { upcomingTasks } from "@/lib/data";
+import { Avatar } from "@/components/ui/Avatar";
 
 const teamMembers = Array.from(
   new Set(
     upcomingTasks.flatMap(task => 
-      task.teamMembers.map(member => member.name)
+      task.teamMembers.map(member => JSON.stringify({ name: member.name, avatar: member.avatar }))
     )
   )
-).map((name, index) => ({
+).map((memberString, index) => ({
   id: index.toString(),
-  name: name
+  ...JSON.parse(memberString)
 }));
 
 type Props = {
@@ -81,11 +82,18 @@ export const ChatSidebar: React.FC<Props> = ({ onSelectUser, selectedUserId }) =
                 }`}
                 onClick={() => handleUserClick(member.id)}
               >
-                {member.name}
+                <div className="flex items-center gap-3">
+                  <Avatar
+                    src={member.avatar}
+                    alt={member.name}
+                    size="sm"
+                  />
+                  <span className="text-sm font-medium">{member.name}</span>
+                </div>
               </Card>
             ))}
         </div>
       </div>
     </>
   );
-};
+}
