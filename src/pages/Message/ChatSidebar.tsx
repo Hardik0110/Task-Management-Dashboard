@@ -4,19 +4,8 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { SearchNormal1 } from "iconsax-react";
 import Header from "@/components/common/Header";
 import { useMainLayout } from "@/hooks/use-mainlayout";
-import { upcomingTasks } from "@/lib/data";
 import { Avatar } from "@/components/ui/Avatar";
-
-const teamMembers = Array.from(
-  new Set(
-    upcomingTasks.flatMap(task => 
-      task.teamMembers.map(member => JSON.stringify({ name: member.name, avatar: member.avatar }))
-    )
-  )
-).map((memberString, index) => ({
-  id: index.toString(),
-  ...JSON.parse(memberString)
-}));
+import { teamMembers } from "@/lib/data";
 
 type Props = {
   onSelectUser: (userId: string) => void;
@@ -77,8 +66,10 @@ export const ChatSidebar: React.FC<Props> = ({ onSelectUser, selectedUserId }) =
             .map((member) => (
               <Card
                 key={member.id}
-                className={`p-3 cursor-pointer mb-2 ${
-                  selectedUserId === member.id ? "bg-gray-200" : ""
+                className={`p-3 cursor-pointer mb-2 transition-colors ${
+                  selectedUserId === member.id 
+                    ? "bg-blue-50 border-blue-200" 
+                    : "hover:bg-gray-50"
                 }`}
                 onClick={() => handleUserClick(member.id)}
               >
@@ -92,7 +83,7 @@ export const ChatSidebar: React.FC<Props> = ({ onSelectUser, selectedUserId }) =
                 </div>
               </Card>
             ))}
-        </div>
+        </div>  
       </div>
     </>
   );

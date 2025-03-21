@@ -230,3 +230,14 @@ export const studentDetails = {
   number: "10",
   lastModified: "1 July 2022"
 };
+
+export const teamMembers = Array.from(
+  new Set(
+    upcomingTasks.flatMap(task => 
+      task.teamMembers.map(member => JSON.stringify({ name: member.name, avatar: member.avatar }))
+    )
+  )
+).map((memberString, index) => ({
+  id: index.toString(),
+  ...JSON.parse(memberString)
+}))

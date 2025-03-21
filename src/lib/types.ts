@@ -184,3 +184,11 @@ export interface MentorCardProps {
   };
   isDetailed?: boolean;
 }
+
+export type ChatHeaderProps = {
+  user: {
+    name: string;
+    avatar: string;
+  };
+  onBackClick?: () => void;
+};
