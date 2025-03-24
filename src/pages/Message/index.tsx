@@ -34,11 +34,11 @@ const Message = () => {
             onBackClick={isMobile ? handleBackClick : undefined}
           />
           {selectedConversationId && (
-            <ChatInput onSendMessage={handleSendMessage} />
+            <ChatInput onSendMessage={handleSendMessage} />   
           )}
         </div>
       </div>
-    </div>
+    </div>  
   )
 }
 
