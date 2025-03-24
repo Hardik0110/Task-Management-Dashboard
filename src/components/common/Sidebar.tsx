@@ -11,7 +11,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
 
   const sidebarClasses = isMobile
     ? `fixed top-0 left-0 h-full bg-white shadow-md z-40 transition-all duration-300 ${
-        isOpen ? "w-64 translate-x-0" : "w-64 -translate-x-full"
+        isOpen ? "w-64 translate-x-0" : "w-64 -translate-x-full"  
       }`
     : "fixed top-0 left-0 h-full w-64 bg-white shadow-md"; 
 

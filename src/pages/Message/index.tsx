@@ -13,7 +13,7 @@ const Message = () => {
   const [selectedConversationId, setSelectedConversationId] = useState<number | null>(null);
 
   const handleSendMessage = (text: string) => {
-    console.log(`Sending message: ${text} to conversation: ${selectedConversationId}`);
+    console.log(`Meesage:- ${text}`);
   };
 
   const handleBackClick = () => {

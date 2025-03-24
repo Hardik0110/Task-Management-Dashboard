@@ -15,24 +15,23 @@ export const ChatWindow: React.FC<Props> = ({ selectedConversationId, onBackClic
       <div className="flex-1 flex items-center justify-center bg-gray-50">
         <p className="text-gray-500">Select a conversation to start messaging</p>
       </div>
-    );
+    )
   }
 
   return (
     <div className="flex flex-col h-full">
       <ChatHeader user={selectedConversation.receiver} onBackClick={onBackClick} />
-      <ScrollArea className="flex-1 p-4 ">
+
+      <ScrollArea className="flex-1 p-4">
         <div className="space-y-4">
           {selectedConversation.messages.map((msg, index) => {
             const isMe = msg.from === "sender";
+
             return (
               <div
                 key={index}
-                className={`flex flex-col gap-1 ${
-                  isMe ? "items-end" : "items-start"
-                }`}
+                className={`flex flex-col gap-1 ${isMe ? "items-end" : "items-start"}`}
               >
-
                 <div
                   className={`p-3 rounded-2xl max-w-[60%] ${
                     isMe
@@ -43,11 +42,7 @@ export const ChatWindow: React.FC<Props> = ({ selectedConversationId, onBackClic
                   <p className="text-sm">{msg.text}</p>
                 </div>
 
-                <span
-                  className={`text-xs ${
-                    isMe ? "text-blue-100" : "text-gray-400"
-                  }`}
-                >
+                <span className="text-xs text-gray-400">
                   {new Date(msg.timestamp).toLocaleTimeString([], {
                     hour: "2-digit",
                     minute: "2-digit",
