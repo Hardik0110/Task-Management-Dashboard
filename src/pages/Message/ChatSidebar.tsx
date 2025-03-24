@@ -5,24 +5,24 @@ import { SearchNormal1 } from "iconsax-react";
 import Header from "@/components/common/Header";
 import { useMainLayout } from "@/hooks/use-mainlayout";
 import { Avatar } from "@/components/ui/Avatar";
-import { teamMembers } from "@/lib/data";
+import { dummyConversations } from "./messageData";
 
 type Props = {
-  onSelectUser: (userId: string) => void;
-  selectedUserId: string | null;
+  onSelectUser: (conversationId: number) => void;
+  selectedConversationId: number | null;
 };
 
-export const ChatSidebar: React.FC<Props> = ({ onSelectUser, selectedUserId }) => {
+export const ChatSidebar: React.FC<Props> = ({ onSelectUser, selectedConversationId }) => {
   const isMobile = useIsMobile();
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(true);
   const [searchQuery, setSearchQuery] = React.useState("");
   const { toggleSidebar } = useMainLayout();
 
-  const handleUserClick = (userId: string) => {
+  const handleUserClick = (conversationId: number) => {
     if (isMobile) {
       setIsSidebarOpen(false);
     }
-    onSelectUser(userId);
+    onSelectUser(conversationId);
   };
 
   return (
@@ -59,30 +59,41 @@ export const ChatSidebar: React.FC<Props> = ({ onSelectUser, selectedUserId }) =
         </div>
 
         <div className="flex-1 overflow-y-auto">
-          {teamMembers
-            .filter((member) =>
-              member.name.toLowerCase().includes(searchQuery.toLowerCase())
-            )
-            .map((member) => (
-              <Card
-                key={member.id}
-                className={`p-3 cursor-pointer mb-2 transition-colors ${
-                  selectedUserId === member.id 
-                    ? "bg-blue-50 border-blue-200" 
-                    : "hover:bg-gray-50"
-                }`}
-                onClick={() => handleUserClick(member.id)}
-              >
-                <div className="flex items-center gap-3">
-                  <Avatar
-                    src={member.avatar}
-                    alt={member.name}
-                    size="sm"
-                  />
-                  <span className="text-sm font-medium">{member.name}</span>
-                </div>
-              </Card>
-            ))}
+        {dummyConversations
+        .filter((conv) =>
+          conv.receiver.name.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+        .map((conversation) => (
+          <Card
+            key={conversation.id}
+            className={`p-3 cursor-pointer mb-2 transition-colors ${
+              selectedConversationId === conversation.id 
+                ? "bg-blue-50 border-blue-200" 
+                : "hover:bg-gray-50"
+            }`}
+            onClick={() => handleUserClick(conversation.id)}
+          >
+            <div className="flex items-center gap-3">
+              <Avatar
+                src={conversation.receiver.avatar}
+                alt={conversation.receiver.name}
+                size="sm"
+              />
+              <div className="flex-1">
+                <span className="text-sm font-medium block">{conversation.receiver.name}</span>
+                <span className="text-xs text-gray-500">
+                  {conversation.messages[conversation.messages.length - 1].text.substring(0, 30)}...
+                </span>
+              </div>
+              <span className="text-xs text-gray-400">
+                {new Date(conversation.messages[conversation.messages.length - 1].timestamp).toLocaleTimeString([], { 
+                  hour: '2-digit', 
+                  minute: '2-digit' 
+                })}
+              </span>
+            </div>
+          </Card>
+        ))}
         </div>  
       </div>
     </>

@@ -8,14 +8,14 @@ type Props = {
 };
 
 export const ChatInput: React.FC<Props> = ({ onSendMessage }) => {
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState("")
 
   const sendMessage = () => {
     if (message.trim()) {
-      onSendMessage(message);
-      setMessage("");
+      onSendMessage(message)
+      setMessage("")
     }
-  };
+  }
 
   return (
     <div className="p-4 border-t flex items-center">
@@ -40,5 +40,5 @@ export const ChatInput: React.FC<Props> = ({ onSendMessage }) => {
         Send
       </Button>
     </div>
-  );
-};
+  )
+}

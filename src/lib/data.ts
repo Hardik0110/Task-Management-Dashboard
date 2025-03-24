@@ -5,7 +5,7 @@ import avatar3 from '/src/assets/avatar3.png';
 import Image1 from '/src/assets/Image1.png';
 import Image2 from '/src/assets/Image2.png';
 import Image3 from '/src/assets/Image3.png';
-
+  
 export const activityChartData: ChartDataPoint[] = [
   { day: "S", tasks: 1, average: 2.8 },
   { day: "M", tasks: 2, average: 1.5 },

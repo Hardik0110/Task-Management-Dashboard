@@ -192,3 +192,7 @@ export type ChatHeaderProps = {
   };
   onBackClick?: () => void;
 };
+
+export interface UpcomingTasksSectionProps {
+  cardsToShow?: number;
+}

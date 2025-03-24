@@ -19,15 +19,14 @@ const TaskTodaySection: React.FC = () => {
       />
       
       <TaskDetailCard
-        id={taskToday.id}
+        id={String(taskToday.id)}
         title={taskToday.title}
         role={taskToday.role}
         progress={taskToday.progress}
-        timeLeft={taskToday.timeLeft}
-        daysLeft={taskToday.daysLeft}
+        timeLeft={taskToday.timeLeft ?? ''}
         image={taskToday.image}
         teamMembers={taskToday.teamMembers}
-        steps={taskToday.steps}
+        steps={taskToday.steps?.map(step => ({ ...step, completed: step.completed ?? false }))}
       />
     </div>
   );

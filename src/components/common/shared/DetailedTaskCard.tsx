@@ -30,7 +30,7 @@ const TaskDetailCard: React.FC<TaskDetailCardProps> = ({
   };
 
   return (
-    <Card className="overflow-hidden shadow-sm">
+    <Card className="overflow-hidden ">
       <img 
         src={image} 
         alt={title} 
