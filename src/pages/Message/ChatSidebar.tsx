@@ -38,7 +38,7 @@ export const ChatSidebar: React.FC<Props> = ({ onSelectUser, selectedConversatio
         className={`${
           isMobile
             ? "fixed inset-0 z-20 transform transition-transform duration-300 ease-in-out"
-            : "w-64 border-r h-full"
+            : "w-84  h-full"
         } ${isMobile && !isSidebarOpen && "-translate-x-full"} bg-white p-4 flex flex-col`}
       >
         {isMobile && <Header toggleSidebar={toggleSidebar} />}
