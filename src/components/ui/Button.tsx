@@ -27,7 +27,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
     ),
     tab: cn(
       'p-2',
-      selected ? "font-bold text-blue-500 underline" : ""
+      selected ? "font-bold text-blue-500 " : ""
     )
   };
 
