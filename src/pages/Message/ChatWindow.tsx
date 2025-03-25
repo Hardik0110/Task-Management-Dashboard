@@ -1,7 +1,6 @@
 import { ScrollArea } from "@/components/ui/ScrollArea";
 import { ChatHeader } from "./ChatHeader";
 import { dummyConversations } from "./messageData";
-import Image from "next/image";
 
 type Props = {
   selectedConversationId: string | null; 
@@ -71,27 +70,28 @@ export const ChatWindow: React.FC<Props> = ({ selectedConversationId, onBackClic
                     className={`flex flex-col gap-1 ${isMe ? "items-end" : "items-start"}`}
                   >
                     <div
-      className={`p-3 rounded-2xl ${
-        isMe
-          ? "bg-[#546FFF] text-white rounded-tr-none"
-          : "bg-white border border-gray-200 rounded-tl-none"
-      }`}
-    >
-      {msg.image && (
-        <div className="mb-2 rounded-lg overflow-hidden">
-          <Image
-            src={msg.image}
-            alt="Message attachment"
-            width={300}
-            height={200}
-            className="object-cover"
-          />
-        </div>
-      )}
-      <div className={`${msg.image ? 'mt-2' : ''}`}>
-        <p className="text-sm">{msg.text}</p>
-      </div>
-    </div>
+                      className={`p-3 rounded-2xl max-w-[300px] ${
+                        isMe
+                          ? "bg-[#546FFF] text-white rounded-tr-none"
+                          : "bg-white border border-gray-200 rounded-tl-none"
+                      }`}
+                    >
+                      {msg.image && (
+                        <div className="mb-2 rounded-lg overflow-hidden">
+                          <img
+                            src={msg.image}
+                            alt="Message attachment"
+                            className="w-full h-48 object-cover"
+                          />
+                        </div>
+                      )}
+                      
+                      {msg.text && (
+                        <p className={`text-sm ${msg.image ? 'mt-2' : ''}`}>
+                          {msg.text}
+                        </p>
+                      )}
+                    </div>
 
                     <span className="text-xs text-gray-400">
                       {new Date(msg.timestamp).toLocaleTimeString([], {

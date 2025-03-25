@@ -9,6 +9,7 @@ export interface User {
   name: string;
   avatar: string;
   status: 'online' | 'offline';
+  image?: string;
 }
 
 export interface Message {
@@ -33,7 +34,7 @@ export const dummyConversations: Conversation[] = [
       name: "Alice Johnson",
       avatar: avatar1,
       status: 'online',
-      image: Image1
+      
     },
     receiver: {
       id: 'user_bob',
@@ -42,7 +43,7 @@ export const dummyConversations: Conversation[] = [
       status: 'offline'
     },
     messages: [
-      { text: "Hey Bob, how's it going?", timestamp: "2023-10-01T09:00:00Z", from: "sender" },
+      { text: "Hey Bob, how's it going?",image: Image1, timestamp: "2023-10-01T09:00:00Z", from: "sender" },
       { text: "Hi Alice! I'm good, thanks. How about you?", timestamp: "2023-10-01T09:02:00Z", from: "receiver" },
       { text: "I'm doing great! Just finished my morning workout.", timestamp: "2023-10-01T09:05:00Z", from: "sender" },
     ],
@@ -63,7 +64,7 @@ export const dummyConversations: Conversation[] = [
     },
     messages: [
       { text: "Hey Diana, are we still on for lunch?", timestamp: "2023-10-01T10:00:00Z", from: "sender" },
-      { text: "Yes, absolutely! I'll meet you at the café.", timestamp: "2023-10-01T10:02:00Z", from: "receiver" },
+      { text: "Yes, absolutely! I'll meet you at the café.",image: Image1, timestamp: "2023-10-01T10:02:00Z", from: "receiver" },
     ],
   },
   {
@@ -82,7 +83,7 @@ export const dummyConversations: Conversation[] = [
     },
     messages: [
       { text: "Fiona, did you get the documents I sent?", timestamp: "2023-10-01T11:00:00Z", from: "sender" },
-      { text: "Yes, I got them. Everything looks good.", timestamp: "2023-10-01T11:05:00Z", from: "receiver" },
+      { text: "Yes, I got them. Everything looks good.",image: Image1, timestamp: "2023-10-01T11:05:00Z", from: "receiver" },
     ],
   },
   {
@@ -100,7 +101,7 @@ export const dummyConversations: Conversation[] = [
       status: 'offline'
     },
     messages: [
-      { text: "Henry, can you send me the project update?", timestamp: "2023-10-01T12:00:00Z", from: "sender" },
+      { text: "Henry, can you send me the project update?",image: Image1, timestamp: "2023-10-01T12:00:00Z", from: "sender" },
       { text: "Sure thing, Grace. I'll email it to you shortly.", timestamp: "2023-10-01T12:05:00Z", from: "receiver" },
     ],
   },
