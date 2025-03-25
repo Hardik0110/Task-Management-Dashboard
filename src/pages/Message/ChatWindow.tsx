@@ -3,7 +3,7 @@ import { ChatHeader } from "./ChatHeader";
 import { dummyConversations } from "./messageData";
 
 type Props = {
-  selectedConversationId: number | null;
+  selectedConversationId: string | null; 
   onBackClick?: () => void;
 };
 

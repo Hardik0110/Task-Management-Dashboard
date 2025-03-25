@@ -8,8 +8,8 @@ import { Avatar } from "@/components/ui/Avatar";
 import { dummyConversations } from "./messageData";
 
 type Props = {
-  onSelectUser: (conversationId: number) => void;
-  selectedConversationId: number | null;
+  onSelectUser: (conversationId: string) => void;
+  selectedConversationId: string | null;
 };
 
 export const ChatSidebar: React.FC<Props> = ({ onSelectUser, selectedConversationId }) => {
@@ -18,7 +18,7 @@ export const ChatSidebar: React.FC<Props> = ({ onSelectUser, selectedConversatio
   const [searchQuery, setSearchQuery] = React.useState("");
   const { toggleSidebar } = useMainLayout();
 
-  const handleUserClick = (conversationId: number) => {
+  const handleUserClick = (conversationId: string) => {
     if (isMobile) {
       setIsSidebarOpen(false);
     }
@@ -38,7 +38,7 @@ export const ChatSidebar: React.FC<Props> = ({ onSelectUser, selectedConversatio
         className={`${
           isMobile
             ? "fixed inset-0 z-20 transform transition-transform duration-300 ease-in-out"
-            : "w-84  h-full"
+            : "w-84 h-full"
         } ${isMobile && !isSidebarOpen && "-translate-x-full"} bg-white p-4 flex flex-col`}
       >
         {isMobile && <Header toggleSidebar={toggleSidebar} />}
@@ -92,14 +92,15 @@ export const ChatSidebar: React.FC<Props> = ({ onSelectUser, selectedConversatio
                   minute: '2-digit' 
                 })}
               </span>
-              <span className=" ml-9 w-2 h-2 bg-red-500 rounded-full"></span>
+              {conversation.receiver.status === 'offline' && (
+                <span className="ml-9 w-2 h-2 bg-red-500 rounded-full"></span>
+              )}
               </div>
             </div>
-            
           </Card>
         ))}
         </div>  
       </div>
     </>
   );
-}
+};

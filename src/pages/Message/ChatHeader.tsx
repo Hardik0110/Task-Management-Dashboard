@@ -2,7 +2,12 @@ import React from 'react';
 import { ArrowLeft2, Call, Video } from 'iconsax-react';
 import { Avatar } from '@/components/ui/Avatar';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { ChatHeaderProps } from '@/lib/types';
+import { User } from './messageData';
+
+interface ChatHeaderProps {
+  user: User;
+  onBackClick?: () => void;
+}
 
 export const ChatHeader: React.FC<ChatHeaderProps> = ({ user, onBackClick }) => {
   const isMobile = useIsMobile();
@@ -21,10 +26,12 @@ export const ChatHeader: React.FC<ChatHeaderProps> = ({ user, onBackClick }) => 
         <Avatar src={user.avatar} alt={user.name} size="md" />
         <div>
           <h3 className="font-semibold">{user.name}</h3>
-          <div className="flex items-center gap-1">
-             <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-             <span className="text-sm text-gray-500">Online</span>
-          </div>
+          {user.status === 'online' && (
+            <div className="flex items-center gap-1">
+              <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+              <span className="text-sm text-gray-500">Online</span>
+            </div>
+          )}
         </div>
       </div>
 

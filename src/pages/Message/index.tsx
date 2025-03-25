@@ -10,10 +10,12 @@ const Message = () => {
   const { toggleSidebar } = useMainLayout();
   const isMobile = useIsMobile();
 
-  const [selectedConversationId, setSelectedConversationId] = useState<number | null>(null);
+  const [selectedConversationId, setSelectedConversationId] = useState<string | null>(null);
 
   const handleSendMessage = (text: string) => {
-    console.log(`Meesage:- ${text}`);
+    if (selectedConversationId) {
+      console.log(`Sending message in conversation ${selectedConversationId}: ${text}`);
+    }
   };
 
   const handleBackClick = () => {
@@ -42,4 +44,4 @@ const Message = () => {
   )
 }
 
-export default Message
+export default Message;
