@@ -49,10 +49,8 @@ export const ChatWindow: React.FC<Props> = ({ selectedConversationId, onBackClic
 
   return (
     <div className="flex flex-col h-full">
-      {/* Chat Header */}
       <ChatHeader user={selectedConversation.receiver} onBackClick={onBackClick} />
 
-      {/* Scrollable Chat Area */}
       <ScrollArea className="flex-1 p-4">
         <div className="space-y-4">
           {Object.entries(groupedMessages).map(([dateLabel, messages], dateIndex) => (

@@ -85,13 +85,17 @@ export const ChatSidebar: React.FC<Props> = ({ onSelectUser, selectedConversatio
                   {conversation.messages[conversation.messages.length - 1].text.substring(0, 30)}...
                 </span>
               </div>
+              <div className="flex flex-col gap-2">
               <span className="text-xs text-gray-400">
                 {new Date(conversation.messages[conversation.messages.length - 1].timestamp).toLocaleTimeString([], { 
                   hour: '2-digit', 
                   minute: '2-digit' 
                 })}
               </span>
+              <span className=" ml-9 w-2 h-2 bg-red-500 rounded-full"></span>
+              </div>
             </div>
+            
           </Card>
         ))}
         </div>  
