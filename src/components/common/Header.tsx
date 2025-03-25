@@ -1,22 +1,25 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useLocation, matchPath } from "react-router-dom";
 import { HambergerMenu, Notification, ProfileCircle, SearchNormal, Sort, Element2 } from "iconsax-react";
 import { useIsMobile } from "@/hooks/use-mobile"; 
 import { pageMessages } from "@/lib/constants";
-import {  CardContent } from "@/components/ui/Card";
+import { CardContent } from "@/components/ui/Card";
 import { HeaderProps } from "@/lib/types";
 
 const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
   const location = useLocation();
-  const userName = "Hardik Kubavat";
   const isMobile = useIsMobile();
 
-  const pageTitle = pageMessages[location.pathname as keyof typeof pageMessages] || "Task Details";
-  const isDashboard = location.pathname === "/";
-  const showEnhancedHeader = 
-    location.pathname === "/mentors" || 
-    location.pathname === "/task" || 
-    matchPath("/task/:taskId", location.pathname) !== null;
+  const { pageTitle, isDashboard, showEnhancedHeader } = useMemo(() => ({
+    pageTitle: pageMessages[location.pathname as keyof typeof pageMessages] || "Task Details",
+    isDashboard: location.pathname === "/",
+    showEnhancedHeader: 
+      location.pathname === "/mentors" || 
+      location.pathname === "/task" || 
+      matchPath("/task/:taskId", location.pathname) !== null
+  }), [location.pathname]);
+
+  const userName = "Hardik Kubavat";
 
   return (
     <div className="bg-white p-6">
@@ -29,7 +32,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
                 className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
                 aria-label="Toggle sidebar"              
               >
-                <HambergerMenu className="w-6 h-6 " color="gray" />
+                <HambergerMenu className="w-6 h-6" color="gray" />
               </button>
             )}
             

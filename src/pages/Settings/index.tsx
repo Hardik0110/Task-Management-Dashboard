@@ -40,7 +40,7 @@ const Dropdown: FC<{
         className="w-96 text-left flex items-center justify-between"
       >
         <span>{value}</span>
-        <ArrowDown2 variant="Bold" color="#333" className={cn("w-4 h-4 transition-transform", isOpen && "rotate-180")} />
+        <ArrowDown2 variant="Linear" color="#333" className={cn("w-4 h-4 transition-transform", isOpen && "rotate-180")} />
       </Button>
       {isOpen && (
         <div className="absolute z-10 w-96 mt-1 bg-white border rounded-lg shadow-lg">
@@ -162,7 +162,7 @@ const Settings: FC = () => {
                         }))}
                       />
                       <h4 className="text-sm font-medium text-gray-900">
-                        {key.replace(/([A-Z])/g, ' $1').trim()} Notifications
+                        {key.charAt(0).toUpperCase() + key.slice(1)}
                       </h4>
                     </div>
                   ))}

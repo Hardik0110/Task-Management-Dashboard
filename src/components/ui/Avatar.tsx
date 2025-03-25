@@ -1,9 +1,9 @@
-import React from 'react';
+import  { memo } from 'react';
 import { cn } from '@/lib/utils';
 import { AvatarProps, AvatarStackProps } from '@/lib/types';
 import { sizeClasses } from '@/lib/constants';
 
-export const Avatar: React.FC<AvatarProps> = ({ 
+export const Avatar = memo<AvatarProps>(({ 
   src, 
   alt = 'Avatar',
   size = 'md',
@@ -22,15 +22,18 @@ export const Avatar: React.FC<AvatarProps> = ({
           src={src} 
           alt={alt} 
           className="w-full h-full object-cover"
+          loading="lazy"
         />
       ) : (
         <div className="w-full h-full bg-gray-200"></div>
       )}
     </div>
   );
-};
+});
 
-export const AvatarStack: React.FC<AvatarStackProps> = ({ 
+Avatar.displayName = 'Avatar';
+
+export const AvatarStack = memo<AvatarStackProps>(({ 
   members = [], 
   maxAvatars = 5,
   size = 'sm'
@@ -42,7 +45,7 @@ export const AvatarStack: React.FC<AvatarStackProps> = ({
     <div className="flex -space-x-2">
       {displayMembers.map((member, i) => (
         <Avatar 
-          key={i} 
+          key={member.avatar || i} 
           src={member.avatar} 
           alt={member.name} 
           size={size}
@@ -53,8 +56,10 @@ export const AvatarStack: React.FC<AvatarStackProps> = ({
       {Array(placeholderCount)
         .fill(0)
         .map((_, i) => (
-          <Avatar key={i} size={size} className="border-2 border-white" />
+          <Avatar key={`placeholder-${i}`} size={size} className="border-2 border-white" />
         ))}
     </div>
   );
-};
+});
+
+AvatarStack.displayName = 'AvatarStack';

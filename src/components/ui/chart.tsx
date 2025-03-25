@@ -12,7 +12,7 @@ export function ChartContainer({ config, children }: ChartContainerProps) {
 
 export function ChartTooltip(props: TooltipProps<number, string>) {
   return props.active ? (
-    <div className="rounded-lg border bg-background p-2 shadow-sm">
+    <div className="rounded-lg border bg-background  shadow-sm">
       {props.payload?.map((entry) => (
         <div key={entry.name}>
           <span>{entry.name}: </span>

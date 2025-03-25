@@ -7,9 +7,9 @@ import Button from "@/components/ui/Button";
 
 export function ActivityChart() {
   return (
-    <Card className="bg-transparent border-0 shadow-none">
-      <CardHeader className="flex flex-row items-center justify-between pb-2">
-        <CardTitle className="text-sm font-medium">Activity</CardTitle>
+    <Card className="bg-gray-200 border-0 shadow-none px-3 py-1">
+      <CardHeader className="flex flex-row items-center justify-between py-1">
+      <CardTitle className="text-sm font-medium">Activity</CardTitle>
         <div className="flex items-center text-xs text-gray-500">
           This Week
           <Button 
@@ -19,9 +19,9 @@ export function ActivityChart() {
           />
         </div>
       </CardHeader>
-      <CardContent>
-        <div className="h-[165px] bg-white rounded-lg p-2">
-          <ResponsiveContainer width="100%" height="100%">
+      <CardContent className="px-0 pb-2">
+      <div className="h-[150px] bg-white rounded-lg p-4">
+        <ResponsiveContainer width="100%" height="100%">
           <LineChart data={activityChartData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis 

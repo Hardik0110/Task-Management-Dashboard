@@ -37,12 +37,12 @@ const TaskDetailCard: React.FC<TaskDetailCardProps> = ({
         className="w-full h-40 object-cover"
       />
       
-      <CardHeader>
+      <CardHeader className='mt-2'>
         <CardTitle>{title}</CardTitle>
-        <CardDescription>{role}</CardDescription>
+        <CardDescription className=''>{role}</CardDescription>
       </CardHeader>
       
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-6 mt-2">
         <ProgressBar 
           progress={progress} 
           showLabel={true}
@@ -78,7 +78,7 @@ const TaskDetailCard: React.FC<TaskDetailCardProps> = ({
       <CardFooter className="mt-auto">
         <button 
           onClick={handleGoToDetail}
-          className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors" >
+          className="w-full bg-blue-600 text-white py-3 mt-5 rounded-lg hover:bg-blue-700 transition-colors" >
           Go To Detail
         </button>
       </CardFooter>

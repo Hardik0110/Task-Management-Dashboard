@@ -11,37 +11,30 @@ const Dashboard = () => {
   const { toggleSidebar } = useMainLayout();
 
   return (
-    <div className="min-h-screen bg-[#F5F5F7] ">
-      
+    <div className="min-h-screen bg-[#F5F5F7]">
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-4">
         <div className="space-y-6">
           <Header toggleSidebar={toggleSidebar} />
-          <div className="p-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="mt-2">
+          <div className="p-4 space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-[0.8fr_2.2fr] gap-4">
               <RunningTaskCard />
-            </div>
-            
-            <div className="md:col-span-2">
               <ActivityChart />
             </div>
-          </div>
 
-          <div className=" rounded-lg p-3 mt-4">
-            <MonthlyMentorsSection />
-          </div>
+            <div className="rounded-lg">
+              <MonthlyMentorsSection />
+            </div>
 
-          <div className=" rounded-lg p-3 mt-4">
-            <UpcomingTasksSection />
-          </div>
+            <div className="rounded-lg">
+              <UpcomingTasksSection />
+            </div>
           </div>
         </div>
 
-        <div className="space-y-16 p-4">
-          <div className="bg-white rounded-lg p-2">
+        <div className="space-y-10 p-2">
+          <div className="bg-white rounded-lg p-2 mt-5">
             <Calendar />
           </div>
-
           <div className="bg-white rounded-lg p-6">
             <TaskTodaySection />
           </div>
