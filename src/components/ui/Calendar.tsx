@@ -20,7 +20,7 @@ const Calendar: React.FC = () => {
   });
 
   return (
-    <div className="bg-white p-3 sm:p-4 rounded-lg w-full overflow-hidden">
+    <div className="bg-white p-2 sm:p-4 rounded-lg w-full overflow-hidden">
       <div className="flex justify-between items-center mb-4">
         <button onClick={() => setCurrentWeek(subWeeks(currentWeek, 1))}>
           <ArrowLeft2 className="h-5 w-5" color="#333"/>

@@ -3,7 +3,7 @@ import { useLocation, matchPath } from "react-router-dom";
 import { HambergerMenu, Notification, ProfileCircle, SearchNormal, Sort, Element2 } from "iconsax-react";
 import { useIsMobile } from "@/hooks/use-mobile"; 
 import { pageMessages } from "@/lib/constants";
-import { Card, CardContent } from "@/components/ui/Card";
+import {  CardContent } from "@/components/ui/Card";
 import { HeaderProps } from "@/lib/types";
 
 const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
     matchPath("/task/:taskId", location.pathname) !== null;
 
   return (
-    <Card className="bg-white p-6">
+    <div className="bg-white p-6">
       <CardContent>
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-4">
@@ -83,7 +83,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
           </div>
         )}
       </CardContent>
-    </Card>
+    </div>
   );
 };
 

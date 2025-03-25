@@ -6,9 +6,9 @@ const RunningTaskCard: React.FC = () => {
   const progressPercentage = 45; 
   
   return (
-    <div className="bg-[#111] text-white p-4 sm:p-6 rounded-lg shadow-md h-full">
+    <div className="bg-[#111] text-white p-2 sm:p-3 rounded-lg shadow-md ">
       <h2 className="text-sm font-medium mb-4">Running Task</h2>
-      <p className="text-4xl font-bold mb-3">{completedTasks}</p>
+      <p className="text-4xl font-bold mb-4">{completedTasks}</p>
 
       <div className="flex justify-between items-center">
         <div className="relative flex items-center justify-center"> 

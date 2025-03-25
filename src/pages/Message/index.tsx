@@ -26,19 +26,20 @@ const Message = () => {
     <div>
       <Header toggleSidebar={toggleSidebar} />
       <div className="flex h-[calc(100vh-6em)]">
+        
         <ChatSidebar 
           onSelectUser={setSelectedConversationId} 
           selectedConversationId={selectedConversationId} 
         />
-        <div className="flex flex-col flex-1">
-          <ChatWindow 
-            selectedConversationId={selectedConversationId}
-            onBackClick={isMobile ? handleBackClick : undefined}
-          />
-          {selectedConversationId && (
+        {selectedConversationId ? (
+          <div className="flex flex-col flex-1">
+            <ChatWindow 
+              selectedConversationId={selectedConversationId}
+              onBackClick={isMobile ? handleBackClick : undefined}
+            />
             <ChatInput onSendMessage={handleSendMessage} />   
-          )}
-        </div>
+          </div>
+        ) : null}
       </div>
     </div>  
   )

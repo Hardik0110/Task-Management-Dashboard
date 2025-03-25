@@ -6,7 +6,7 @@ import Header from "@/components/common/Header";
 import { useMainLayout } from "@/hooks/use-mainlayout";
 import { Avatar } from "@/components/ui/Avatar";
 import { dummyConversations } from "./messageData";
-import { TickCircle } from "iconsax-react";
+import Vector from "@/assets/icons/Vector";
 
 type Props = {
   onSelectUser: (conversationId: string) => void;
@@ -39,6 +39,7 @@ export const ChatSidebar: React.FC<Props> = ({ onSelectUser, selectedConversatio
         className={`${
           isMobile
             ? "fixed inset-0 z-20 transform transition-transform duration-300 ease-in-out"
+            
             : "w-84 h-full"
         } ${isMobile && !isSidebarOpen && "-translate-x-full"} bg-white p-4 flex flex-col`}
       >
@@ -83,7 +84,7 @@ export const ChatSidebar: React.FC<Props> = ({ onSelectUser, selectedConversatio
               <div className="flex-1">
                 <span className="text-sm font-medium block">{conversation.receiver.name}</span>
                 <span className="text-xs text-gray-500">
-                  {conversation.messages[conversation.messages.length - 1].text.substring(0, 30)}...
+                  {conversation.messages[conversation.messages.length - 1].text.substring(0, 20)}...
                 </span>
               </div>
               <div className="flex flex-col gap-2">
@@ -98,7 +99,7 @@ export const ChatSidebar: React.FC<Props> = ({ onSelectUser, selectedConversatio
                 )}
                 {conversation.receiver.status === 'online' && (
                   <div className="flex gap-1 ml-7">
-                    <TickCircle size={16} variant="Bold" color="#04A4F4" />
+                  <Vector />
                   </div>
                 )}
               </div>
