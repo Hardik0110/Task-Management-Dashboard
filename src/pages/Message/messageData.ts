@@ -1,6 +1,7 @@
 import avatar1 from '@/assets/avatar1.png';
 import avatar2 from '@/assets/avatar2.png';
 import avatar3 from '@/assets/avatar3.png';
+import Image1 from '@/assets/Image1.png';
 
 
 export interface User {
@@ -14,6 +15,7 @@ export interface Message {
   text: string;
   timestamp: string;
   from: 'sender' | 'receiver';
+  image?: string;
 }
 
 export interface Conversation {
@@ -30,7 +32,8 @@ export const dummyConversations: Conversation[] = [
       id: 'user_alice',
       name: "Alice Johnson",
       avatar: avatar1,
-      status: 'online'
+      status: 'online',
+      image: Image1
     },
     receiver: {
       id: 'user_bob',
