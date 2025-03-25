@@ -6,6 +6,7 @@ import Header from "@/components/common/Header";
 import { useMainLayout } from "@/hooks/use-mainlayout";
 import { Avatar } from "@/components/ui/Avatar";
 import { dummyConversations } from "./messageData";
+import { TickCircle } from "iconsax-react";
 
 type Props = {
   onSelectUser: (conversationId: string) => void;
@@ -86,15 +87,20 @@ export const ChatSidebar: React.FC<Props> = ({ onSelectUser, selectedConversatio
                 </span>
               </div>
               <div className="flex flex-col gap-2">
-              <span className="text-xs text-gray-400">
-                {new Date(conversation.messages[conversation.messages.length - 1].timestamp).toLocaleTimeString([], { 
-                  hour: '2-digit', 
-                  minute: '2-digit' 
-                })}
-              </span>
-              {conversation.receiver.status === 'offline' && (
-                <span className="ml-9 w-2 h-2 bg-red-500 rounded-full"></span>
-              )}
+                <span className="text-xs text-gray-400">
+                  {new Date(conversation.messages[conversation.messages.length - 1].timestamp).toLocaleTimeString([], { 
+                    hour: '2-digit', 
+                    minute: '2-digit' 
+                  })}
+                </span>
+                {conversation.receiver.status === 'offline' && (
+                  <span className="ml-9 w-2 h-2 bg-red-500 rounded-full"></span>
+                )}
+                {conversation.receiver.status === 'online' && (
+                  <div className="flex gap-1 ml-7">
+                    <TickCircle size={16} variant="Bold" color="#04A4F4" />
+                  </div>
+                )}
               </div>
             </div>
           </Card>
