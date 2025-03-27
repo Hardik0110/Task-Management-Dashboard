@@ -1,4 +1,4 @@
-import  { memo } from 'react';
+import { memo } from 'react';
 import { cn } from '@/lib/utils';
 import { AvatarProps, AvatarStackProps } from '@/lib/types';
 import { sizeClasses } from '@/lib/constants';
@@ -43,9 +43,9 @@ export const AvatarStack = memo<AvatarStackProps>(({
   
   return (
     <div className="flex -space-x-2">
-      {displayMembers.map((member, i) => (
+      {displayMembers.map((member, index) => (
         <Avatar 
-          key={member.avatar || i} 
+          key={`member-${member.name}-${index}`} 
           src={member.avatar} 
           alt={member.name} 
           size={size}
@@ -55,8 +55,12 @@ export const AvatarStack = memo<AvatarStackProps>(({
       
       {Array(placeholderCount)
         .fill(0)
-        .map((_, i) => (
-          <Avatar key={`placeholder-${i}`} size={size} className="border-2 border-white" />
+        .map((_, index) => (
+          <Avatar 
+            key={`placeholder-${index}`} 
+            size={size} 
+            className="border-2 border-white" 
+          />
         ))}
     </div>
   );
