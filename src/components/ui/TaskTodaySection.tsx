@@ -26,7 +26,7 @@ const TaskTodaySection: React.FC = () => {
         timeLeft={taskToday.timeLeft ?? ''}
         image={taskToday.image}
         teamMembers={taskToday.teamMembers}
-        steps={taskToday.steps?.map(step => ({ ...step, completed: step.completed ?? false }))}
+        steps={taskToday.steps?.map(step => ({ ...step, completed: false }))}
       />
     </div>
   );
