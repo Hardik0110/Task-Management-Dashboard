@@ -28,7 +28,7 @@ const MentorCard: React.FC<MentorCardProps> = ({ mentor, isDetailed = false }) =
               className={`text-xs font-medium px-3 py-1 rounded-full ${
                 mentor.followed
                   ? "text-gray-700 bg-gray-100"
-                  : "text-blue-600 border border-blue-600"
+                  : "text-blue-600 "
               }`}
             >
               {mentor.followed ? "Followed" : "+ Follow"}

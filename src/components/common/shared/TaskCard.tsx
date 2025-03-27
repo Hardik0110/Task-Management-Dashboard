@@ -19,7 +19,7 @@ const TaskCard: React.FC<Task> = memo(({
   teamMembers,
 }) => {
   return (
-    <Card className="overflow-hidden shadow-sm">
+    <Card className="overflow-hidden bg-white">
       <CardHeader className="p-3 pb-0"> 
         <img 
           src={image} 
@@ -28,7 +28,7 @@ const TaskCard: React.FC<Task> = memo(({
         />
       </CardHeader>
 
-      <CardContent className="pt-3 pb-0 px-5">  {/* Reduced top padding from p-5 to pt-3 */}
+      <CardContent className="pt-3 pb-0 px-5">  
         <h3 className="font-medium">{title}</h3>
         <p className="text-xs text-gray-500 mt-1">{role}</p>
 

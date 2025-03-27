@@ -39,7 +39,7 @@ const RunningTaskCard: React.FC = () => {
           <span className="absolute text-sm font-semibold">{progressPercentage}%</span>
         </div>
 
-        <div className="flex flex-col items-end mr-5">
+        <div className="flex flex-col mr-10">
           <span className="text-3xl font-bold">{totalTasks}</span>
           <span className="text-xl text-gray-400">Task</span>
         </div>

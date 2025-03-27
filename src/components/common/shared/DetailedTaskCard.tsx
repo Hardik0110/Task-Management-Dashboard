@@ -30,7 +30,7 @@ const TaskDetailCard: React.FC<TaskDetailCardProps> = ({
   };
 
   return (
-    <Card className="overflow-hidden ">
+    <Card className="overflow-hidden">
       <img 
         src={image} 
         alt={title} 
@@ -78,7 +78,8 @@ const TaskDetailCard: React.FC<TaskDetailCardProps> = ({
       <CardFooter className="mt-auto">
         <button 
           onClick={handleGoToDetail}
-          className="w-full bg-blue-600 text-white py-3 mt-5 rounded-lg hover:bg-blue-700 transition-colors" >
+          className="w-full bg-blue-500 text-white py-3 mt-5 rounded-lg hover:bg-blue-700 transition-colors"
+        >
           Go To Detail
         </button>
       </CardFooter>

@@ -63,12 +63,7 @@ export function ActivityChart() {
                 dataKey="tasks"
                 stroke="#333"
                 strokeWidth={3}
-                dot={{
-                  fill: "#3b82f6",
-                  stroke: "white",
-                  strokeWidth: 2,
-                  r: 5
-                }}
+                dot={false} 
                 activeDot={{
                   fill: "#3b82f6",
                   stroke: "white",
@@ -79,7 +74,7 @@ export function ActivityChart() {
             </LineChart>
           </ResponsiveContainer>
         </div>
-      </CardContent>
+      </CardContent>  
     </Card>
   );
 }

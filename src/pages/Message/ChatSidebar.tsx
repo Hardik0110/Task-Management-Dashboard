@@ -13,7 +13,7 @@ type Props = {
   selectedConversationId: string | null;
 };
 
-export const ChatSidebar: React.FC<Props> = ({ onSelectUser, selectedConversationId }) => {
+export const ChatSidebar: React.FC<Props> = ({ onSelectUser, selectedConversationId }) => { 
   const isMobile = useIsMobile();
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(true);
   const [searchQuery, setSearchQuery] = React.useState("");

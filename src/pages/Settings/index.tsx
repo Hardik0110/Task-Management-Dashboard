@@ -27,6 +27,7 @@ const Dropdown: FC<{
                     options: string[];
                     value: string;
                     onChange: (value: string) => void;
+                    className?: string;
                   }> = ({ label, options, value, onChange }) => {
                     const [isOpen, setIsOpen] = useState(false);
   
@@ -37,7 +38,7 @@ const Dropdown: FC<{
         type="button"
         variant="outline"
         onClick={() => setIsOpen(!isOpen)}
-        className="w-96 text-left flex items-center justify-between"
+        className="w-96 text-left flex items-center justify-between border border-gray-200"
       >
         <span>{value}</span>
         <ArrowDown2 variant="Linear" color="#333" className={cn("w-4 h-4 transition-transform", isOpen && "rotate-180")} />
@@ -82,16 +83,16 @@ const Settings: FC = () => {
   return (
     <>
       <Header toggleSidebar={toggleSidebar} />
-      <div className="p-6">
-        <div className="bg-white border-b border-gray-200">
-          <div className="flex space-x-4">
+      <div className="p-8 ">
+        <div className="bg-white border-b border-gray-200 rounded-t-lg">
+          <div className="flex space-x-6">
             {SECTIONS.map(section => (
               <Button
                 key={section}
                 variant="tab"
                 selected={activeSection === section}
                 onClick={() => setActiveSection(section)}
-                className="relative pb-3"
+                className="relative pb-6 mt-4 "
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
                 {activeSection === section && (
@@ -102,7 +103,7 @@ const Settings: FC = () => {
           </div>
         </div>
 
-        <div className="p-4 bg-white rounded-lg shadow-md">
+        <div className="p-4 bg-white rounded-b-lg ">
           <form onSubmit={handleSubmit(console.log)}>
             {activeSection === "general" ? (
               <div className="space-y-6">

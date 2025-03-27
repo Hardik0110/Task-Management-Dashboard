@@ -67,7 +67,7 @@ const Calendar: React.FC = () => {
               )}
               <span
                 className={`relative z-10 flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-full transition text-xs sm:text-sm ${
-                  isSelected ? "bg-blue-600 text-white" : ""
+                  isSelected ? "bg-blue-600 text-white" : "bg-gray-200"
                 }`}
               >
                 {format(day, "d")}
