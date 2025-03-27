@@ -1,6 +1,5 @@
 import React from 'react';
-import { Star } from 'lucide-react';
-import { Notepad2 } from 'iconsax-react';
+import { Notepad2 , Star1 } from 'iconsax-react';
 import { Avatar } from '../../ui/Avatar';
 import { MentorCardProps } from '@/lib/types';
 import {
@@ -47,7 +46,7 @@ const MentorCard: React.FC<MentorCardProps> = ({ mentor, isDetailed = false }) =
               <span className="text-xs">{mentor.taskCount} Task</span>
             </div>
             <div className="flex items-center">
-              <Star className="h-4 w-4 text-yellow-400  mr-1" fill="currentColor" />
+              <Star1 className="h-4 w-4 text-yellow-400  mr-1" variant='Bold' color='#FFD700' />
               <span className="text-xs">
                 {mentor.rating} ({mentor.reviews} Reviews)
               </span>
