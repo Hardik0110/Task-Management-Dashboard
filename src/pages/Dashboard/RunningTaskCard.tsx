@@ -9,7 +9,7 @@ const RunningTaskCard: React.FC = () => {
   
   return (
     <div className="bg-[#111] text-white p-2 sm:p-3 rounded-lg shadow-md">
-      <h2 className="text-sm font-medium mb-4">Running Task</h2>
+      <h2 className="text-lg font-large mb-4">Running Task</h2>
       <div className={`${isMobile ? 'flex items-center justify-between' : ''}`}>
         <p className={`text-4xl font-bold ${isMobile ? 'mb-0' : 'mb-4'}`}>{completedTasks}</p>
 
