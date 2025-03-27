@@ -11,18 +11,21 @@ import Vector from "@/assets/icons/Vector";
 type Props = {
   onSelectUser: (conversationId: string) => void;
   selectedConversationId: string | null;
+  isSidebarOpen: boolean;
+  setIsSidebarOpen: (isOpen: boolean) => void;
 };
 
-export const ChatSidebar: React.FC<Props> = ({ onSelectUser, selectedConversationId }) => { 
+export const ChatSidebar: React.FC<Props> = ({ 
+  onSelectUser, 
+  selectedConversationId,
+  isSidebarOpen,
+  setIsSidebarOpen
+}) => { 
   const isMobile = useIsMobile();
-  const [isSidebarOpen, setIsSidebarOpen] = React.useState(true);
   const [searchQuery, setSearchQuery] = React.useState("");
   const { toggleSidebar } = useMainLayout();
 
   const handleUserClick = (conversationId: string) => {
-    if (isMobile) {
-      setIsSidebarOpen(false);
-    }
     onSelectUser(conversationId);
   };
 
@@ -39,7 +42,6 @@ export const ChatSidebar: React.FC<Props> = ({ onSelectUser, selectedConversatio
         className={`${
           isMobile
             ? "fixed inset-0 z-20 transform transition-transform duration-300 ease-in-out"
-            
             : "w-84 h-full"
         } ${isMobile && !isSidebarOpen && "-translate-x-full"} bg-white p-4 flex flex-col`}
       >

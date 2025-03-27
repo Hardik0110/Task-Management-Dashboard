@@ -8,9 +8,9 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 const Message = () => {
   const { toggleSidebar } = useMainLayout();
-  const isMobile = useIsMobile();
-
   const [selectedConversationId, setSelectedConversationId] = useState<string | null>(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const isMobile = useIsMobile();
 
   const handleSendMessage = (text: string) => {
     if (selectedConversationId) {
@@ -18,8 +18,18 @@ const Message = () => {
     }
   };
 
+  const handleSelectUser = (conversationId: string) => {
+    setSelectedConversationId(conversationId);
+    if (isMobile) {
+      setIsSidebarOpen(false);
+    }
+  };
+
   const handleBackClick = () => {
-    setSelectedConversationId(null);
+    if (isMobile) {
+      setIsSidebarOpen(true);
+      setSelectedConversationId(null);
+    }
   };
 
   return (
@@ -28,14 +38,16 @@ const Message = () => {
       <div className="flex h-[calc(100vh-6em)]">
         
         <ChatSidebar 
-          onSelectUser={setSelectedConversationId} 
-          selectedConversationId={selectedConversationId} 
+          onSelectUser={handleSelectUser} 
+          selectedConversationId={selectedConversationId}
+          isSidebarOpen={isSidebarOpen}
+          setIsSidebarOpen={setIsSidebarOpen}
         />
         {selectedConversationId ? (
           <div className="flex flex-col flex-1">
             <ChatWindow 
               selectedConversationId={selectedConversationId}
-              onBackClick={isMobile ? handleBackClick : undefined}
+              onBackClick={handleBackClick}
             />
             <ChatInput onSendMessage={handleSendMessage} />   
           </div>
