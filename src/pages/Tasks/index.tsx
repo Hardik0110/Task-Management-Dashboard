@@ -6,7 +6,7 @@ import { upcomingTasks } from "@/lib/data";
 import TaskCard from "@/components/common/shared/TaskCard";
 import {  TaskSectionProps, TaskPageProps } from "@/lib/types";
 
-const TaskSection: React.FC<TaskSectionProps> = ({ title, tasks, cardsToShow }) => {
+const TaskSection: React.FC<TaskSectionProps> = ({ title, tasks, cardsToShow }) => {  
   const { 
     handlePrevious, 
     handleNext, 
@@ -16,7 +16,6 @@ const TaskSection: React.FC<TaskSectionProps> = ({ title, tasks, cardsToShow }) 
   } = useCarousel({
     totalItems: tasks.length,
     itemsPerPage: window.innerWidth < 768 ? 1 : cardsToShow,
-    
   });
 
   return (
