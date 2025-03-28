@@ -7,7 +7,7 @@ import Button from "@/components/ui/Button";
 
 export function ActivityChart() {
   return (
-    <Card className="bg-gray-150 border-0 shadow-none px-3 py-1">
+    <Card className="bg-[#EEEEEC] border-0 shadow-none px-3 py-1">
       <CardHeader className="flex flex-row items-center justify-between py-1">
       <CardTitle className="text-sm font-medium">Activity</CardTitle>
         <div className="flex items-center text-xs text-gray-500">
