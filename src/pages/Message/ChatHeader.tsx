@@ -13,7 +13,7 @@ export const ChatHeader: React.FC<ChatHeaderProps> = ({ user, onBackClick }) => 
   const isMobile = useIsMobile();
 
   return (
-    <div className="flex items-center justify-between px-4 py-3 bg-white">
+    <div className="flex items-center justify-between px-4 py-5 bg-white">
       <div className="flex items-center gap-3">
         {isMobile && (
           <button
@@ -36,11 +36,11 @@ export const ChatHeader: React.FC<ChatHeaderProps> = ({ user, onBackClick }) => 
       </div>
 
       <div className="flex items-center gap-2">
-        <button className="p-2 hover:bg-gray-100 rounded-full">
-          <Video size={24} color="#333" variant="Linear" />
+        <button className="p-2 hover:bg-gray-100 border-1 border-gray-200 rounded-full">
+          <Video size={24} color="gray" variant="Linear" />
         </button>
-        <button className="p-2 hover:bg-gray-100 rounded-full">
-          <Call size={24} color="#333" variant="Linear" />
+        <button className="p-2 hover:bg-gray-100 border-1 border-gray-200 rounded-full">
+          <Call size={24} color="gray" variant="Linear" />
         </button>
       </div>
     </div>

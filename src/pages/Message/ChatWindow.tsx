@@ -3,11 +3,15 @@ import { ChatHeader } from "./ChatHeader";
 import { dummyConversations } from "./messageData";
 
 type Props = {
-  selectedConversationId: string | null; 
+  selectedConversationId: string | null;
+  conversations: typeof dummyConversations;
   onBackClick?: () => void;
 };
 
-export const ChatWindow: React.FC<Props> = ({ selectedConversationId, onBackClick }) => {
+export const ChatWindow: React.FC<Props> = ({ 
+  selectedConversationId, 
+  onBackClick 
+}) => {
   const selectedConversation = dummyConversations.find((c) => c.id === selectedConversationId);
 
   if (!selectedConversation) {

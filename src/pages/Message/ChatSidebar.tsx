@@ -9,6 +9,7 @@ import { dummyConversations } from "./messageData";
 import Vector from "@/assets/icons/Vector";
 
 type Props = {
+  conversations?: typeof dummyConversations; // Make conversations optional
   onSelectUser: (conversationId: string) => void;
   selectedConversationId: string | null;
   isSidebarOpen: boolean;
@@ -16,6 +17,7 @@ type Props = {
 };
 
 export const ChatSidebar: React.FC<Props> = ({ 
+  conversations = [], // Add default empty array
   onSelectUser, 
   selectedConversationId,
   isSidebarOpen,
@@ -52,18 +54,18 @@ export const ChatSidebar: React.FC<Props> = ({
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search..."
-            className="w-full px-4 py-2 pl-10 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+            placeholder="Search Name..."
+            className="w-full px-4 py-2 pl-8 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
           />
           <SearchNormal1
             size={20}
             color="gray"
-            className="absolute left-3 top-1/2 transform -translate-y-1/2"
+            className="absolute right-3 top-1/2 transform -translate-y-1/2"
           />
         </div>
 
         <div className="flex-1 overflow-y-auto">
-        {dummyConversations
+        {Array.isArray(conversations) && conversations // Add type check
         .filter((conv) =>
           conv.receiver.name.toLowerCase().includes(searchQuery.toLowerCase())
         )

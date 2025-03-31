@@ -26,7 +26,7 @@ export const DAYS_OF_WEEK = [
     "/": welcomeMessage,
     "/task": "Explore Tasks",
     "/mentors": "Explore Mentors",
-    "/message": "Your Messages",
+    "/message": " Messages",
     "/settings": "Settings & Preferences",
     "/task/:taskId": "Task Details"
   };

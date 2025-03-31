@@ -18,27 +18,28 @@ export const ChatInput: React.FC<Props> = ({ onSendMessage }) => {
   }
 
   return (
-    <div className="p-4 bg-white flex items-center">
-      <div className="relative flex-grow">
+    <div className="p-4 bg-white flex items-center gap-2">
+      <div className="flex-grow">
         <Input
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Type a message..."
-          className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 w-full"
+          className="px-4 py-2 focus:ring-0 w-full rounded-lg border-0 focus:outline-none "
         />
-        <Button
-          className="absolute top-1/2 transform -translate-y-1/2 right-2 bg-gray-200 text-gray-600 hover:bg-gray-300 p-2 rounded-full"
-        >
-          <AttachCircle size={16} color="grey" />
-        </Button>
       </div>
 
       <Button
+        className="p-2 bg-gray-50 text-gray-600 hover:bg-gray-100 rounded-lg"
+      >
+        <AttachCircle size={24} color="grey" />
+      </Button>
+
+      <Button
         onClick={sendMessage}
-        className="ml-2 px-4 py-2 bg-[#546FFF] text-white rounded-lg hover:bg-blue-600 transition-colors duration-200"
+        className="px-4 py-2 bg-[#546FFF] text-white rounded-lg hover:bg-blue-600 transition-colors duration-200"
       >
         <Send2 variant="Bold" size={24} color="white" />
       </Button>
     </div>
   )
-} 
+}
