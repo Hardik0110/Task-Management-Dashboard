@@ -1,18 +1,31 @@
 import { ScrollArea } from "@/components/ui/ScrollArea";
 import { ChatHeader } from "./ChatHeader";
+import { ChatInput } from "./ChatInput";
+import { useEffect, useRef } from "react";
 import { dummyConversations } from "./messageData";
 
 type Props = {
   selectedConversationId: string | null;
   conversations: typeof dummyConversations;
   onBackClick?: () => void;
+  onSendMessage: (message: string) => void;
 };
 
 export const ChatWindow: React.FC<Props> = ({ 
   selectedConversationId, 
-  onBackClick 
+  onBackClick,
+  conversations,
+  onSendMessage
 }) => {
-  const selectedConversation = dummyConversations.find((c) => c.id === selectedConversationId);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const selectedConversation = conversations.find((c) => c.id === selectedConversationId) || 
+                              dummyConversations.find((c) => c.id === selectedConversationId);
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [selectedConversation?.messages]);
 
   if (!selectedConversation) {
     return (
@@ -51,6 +64,11 @@ export const ChatWindow: React.FC<Props> = ({
     return acc;
   }, {} as Record<string, typeof selectedConversation.messages>);
 
+  const exceedsWordLimit = (text: string): boolean => {
+    if (!text) return false;
+    return text.split(' ').length > 30;
+  };
+
   return (
     <div className="flex flex-col h-full">
       <ChatHeader user={selectedConversation.receiver} onBackClick={onBackClick} />
@@ -60,21 +78,22 @@ export const ChatWindow: React.FC<Props> = ({
           {Object.entries(groupedMessages).map(([dateLabel, messages], dateIndex) => (
             <div key={dateIndex}>
               <div className="flex justify-center mb-2">
-                <span className="px-3 py-1 text-xs font-semibold text-gray-500 bg-gray-100 rounded-full">
+                <span className="px-3 py-1 text-xs font-semibold text-white bg-black rounded-md">
                   {dateLabel}
                 </span>
               </div>
 
               {messages.map((msg, index) => {
                 const isMe = msg.from === "sender";
+                const wordExceeded = exceedsWordLimit(msg.text);
 
                 return (
                   <div
                     key={index}
-                    className={`flex flex-col gap-1 ${isMe ? "items-end" : "items-start"}`}
+                    className={`flex flex-col gap-1 ${isMe ? "items-end" : "items-start"} mb-4`}
                   >
                     <div
-                      className={`p-3 rounded-2xl max-w-[300px] ${
+                      className={`p-3 rounded-2xl ${wordExceeded ? 'max-w-[300px]' : 'max-w-[300px]'} ${
                         isMe
                           ? "bg-[#546FFF] text-white rounded-tr-none"
                           : "bg-white border border-gray-200 rounded-tl-none"
@@ -91,7 +110,7 @@ export const ChatWindow: React.FC<Props> = ({
                       )}
                       
                       {msg.text && (
-                        <p className={`text-sm ${msg.image ? 'mt-2' : ''}`}>
+                        <p className={`text-sm ${msg.image ? 'mt-2' : ''} break-words`}>
                           {msg.text}
                         </p>
                       )}
@@ -108,8 +127,13 @@ export const ChatWindow: React.FC<Props> = ({
               })}
             </div>
           ))}
+          <div ref={scrollRef} />
         </div>
       </ScrollArea>
+      
+      <div className="flex-shrink-0">
+        <ChatInput onSendMessage={onSendMessage} />   
+      </div>
     </div>
   );
 };

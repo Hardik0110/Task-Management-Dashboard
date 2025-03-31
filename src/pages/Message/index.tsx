@@ -3,7 +3,6 @@ import Header from "@/components/common/Header"
 import { useState } from "react";
 import { ChatSidebar } from "./ChatSidebar";
 import { ChatWindow } from "./ChatWindow";
-import { ChatInput } from "./ChatInput";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { dummyConversations } from "./messageData";
 
@@ -52,21 +51,21 @@ const Message = () => {
         <Header toggleSidebar={toggleSidebar} />
       </div>
       <div className="flex flex-1 min-h-0">
-      <ChatSidebar 
-        conversations={conversations} // Make sure this is passed
-        onSelectUser={handleSelectUser} 
-        selectedConversationId={selectedConversationId}
-        isSidebarOpen={isSidebarOpen}
-        setIsSidebarOpen={setIsSidebarOpen}
-      />
+        <ChatSidebar 
+          conversations={conversations}
+          onSelectUser={handleSelectUser} 
+          selectedConversationId={selectedConversationId}
+          isSidebarOpen={isSidebarOpen}
+          setIsSidebarOpen={setIsSidebarOpen}
+        />
         {selectedConversationId ? (
           <div className="flex flex-col flex-1 min-h-0">
             <ChatWindow 
               selectedConversationId={selectedConversationId}
-              onBackClick={handleBackClick} conversations={[]}            />
-            <div className="flex-shrink-0">
-              <ChatInput onSendMessage={handleSendMessage} />   
-            </div>
+              onBackClick={handleBackClick}
+              conversations={conversations}
+              onSendMessage={handleSendMessage}
+            />
           </div>
         ) : null}
       </div>

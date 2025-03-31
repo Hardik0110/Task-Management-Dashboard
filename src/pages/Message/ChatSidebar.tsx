@@ -9,7 +9,7 @@ import { dummyConversations } from "./messageData";
 import Vector from "@/assets/icons/Vector";
 
 type Props = {
-  conversations?: typeof dummyConversations; // Make conversations optional
+  conversations?: typeof dummyConversations; 
   onSelectUser: (conversationId: string) => void;
   selectedConversationId: string | null;
   isSidebarOpen: boolean;
@@ -17,7 +17,7 @@ type Props = {
 };
 
 export const ChatSidebar: React.FC<Props> = ({ 
-  conversations = [], // Add default empty array
+  conversations = [], 
   onSelectUser, 
   selectedConversationId,
   isSidebarOpen,
@@ -39,16 +39,14 @@ export const ChatSidebar: React.FC<Props> = ({
           onClick={() => setIsSidebarOpen(false)}
         />
       )}
-
       <div
         className={`${
           isMobile
             ? "fixed inset-0 z-20 transform transition-transform duration-300 ease-in-out"
-            : "w-84 h-full"
+            : "w-84 h-full border-r border-gray-200"
         } ${isMobile && !isSidebarOpen && "-translate-x-full"} bg-white p-4 flex flex-col`}
       >
         {isMobile && <Header toggleSidebar={toggleSidebar} />}
-
         <div className="relative mb-4 flex-shrink-0">
           <input
             type="text"
@@ -63,53 +61,56 @@ export const ChatSidebar: React.FC<Props> = ({
             className="absolute right-3 top-1/2 transform -translate-y-1/2"
           />
         </div>
-
-        <div className="flex-1 overflow-y-auto">
-        {Array.isArray(conversations) && conversations // Add type check
-        .filter((conv) =>
-          conv.receiver.name.toLowerCase().includes(searchQuery.toLowerCase())
-        )
-        .map((conversation) => (
-          <Card
-            key={conversation.id}
-            className={`p-3 cursor-pointer mb-2 transition-colors ${
-              selectedConversationId === conversation.id 
-                ? "bg-blue-50 border-blue-200" 
-                : "hover:bg-gray-50"
-            }`}
-            onClick={() => handleUserClick(conversation.id)}
-          >
-            <div className="flex items-center gap-3">
-              <Avatar
-                src={conversation.receiver.avatar}
-                alt={conversation.receiver.name}
-                size="sm"
-              />
-              <div className="flex-1">
-                <span className="text-sm font-medium block">{conversation.receiver.name}</span>
-                <span className="text-xs text-gray-500">
-                  {conversation.messages[conversation.messages.length - 1].text.substring(0, 20)}...
-                </span>
-              </div>
-              <div className="flex flex-col gap-2">
-                <span className="text-xs text-gray-400">
-                  {new Date(conversation.messages[conversation.messages.length - 1].timestamp).toLocaleTimeString([], { 
-                    hour: '2-digit', 
-                    minute: '2-digit' 
-                  })}
-                </span>
-                {conversation.receiver.status === 'offline' && (
-                  <span className="ml-9 w-2 h-2 bg-red-500 rounded-full"></span>
-                )}
-                {conversation.receiver.status === 'online' && (
-                  <div className="flex gap-1 ml-7">
-                  <Vector />
+        <div className="flex-1 overflow-y-auto space-y-2">
+          {Array.isArray(conversations) && conversations
+          .filter((conv) =>
+            conv.receiver.name.toLowerCase().includes(searchQuery.toLowerCase())
+          )
+          .map((conversation, index, array) => (
+            <div key={conversation.id}>
+              <Card
+                className={`p-3 cursor-pointer transition-colors ${
+                  selectedConversationId === conversation.id 
+                    ? "bg-blue-50 border-blue-200" 
+                    : "hover:bg-gray-50"
+                }`}
+                onClick={() => handleUserClick(conversation.id)}
+              >
+                <div className="flex items-center gap-3">
+                  <Avatar
+                    src={conversation.receiver.avatar}
+                    alt={conversation.receiver.name}
+                    size="sm"
+                  />
+                  <div className="flex-1">
+                    <span className="text-sm font-medium block">{conversation.receiver.name}</span>
+                    <span className="text-xs text-gray-500">
+                      {conversation.messages[conversation.messages.length - 1].text.substring(0, 20)}...
+                    </span>
                   </div>
-                )}
-              </div>
+                  <div className="flex flex-col gap-2">
+                    <span className="text-xs text-gray-400">
+                      {new Date(conversation.messages[conversation.messages.length - 1].timestamp).toLocaleTimeString([], { 
+                        hour: '2-digit', 
+                        minute: '2-digit' 
+                      })}
+                    </span>
+                    {conversation.receiver.status === 'offline' && (
+                      <span className="ml-9 w-2 h-2 bg-red-500 rounded-full"></span>
+                    )}
+                    {conversation.receiver.status === 'online' && (
+                      <div className="flex gap-1 ml-7">
+                      <Vector />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </Card>
+              {index < array.length - 1 && (
+                <div className="h-px bg-gray-100 my-2" />
+              )}
             </div>
-          </Card>
-        ))}
+          ))}
         </div>  
       </div>
     </>
