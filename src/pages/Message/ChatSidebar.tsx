@@ -57,7 +57,7 @@ export const ChatSidebar: React.FC<Props> = ({
           />
           <SearchNormal1
             size={20}
-            color="gray"
+            color="black"
             className="absolute right-3 top-1/2 transform -translate-y-1/2"
           />
         </div>
