@@ -78,7 +78,7 @@ export const ChatWindow: React.FC<Props> = ({
           {Object.entries(groupedMessages).map(([dateLabel, messages], dateIndex) => (
             <div key={dateIndex}>
               <div className="flex justify-center mb-2">
-                <span className="px-3 py-1 text-xs font-semibold text-white bg-black rounded-full">
+                <span className="px-3 py-2 text-xs font-semibold text-white bg-black rounded-md">
                   {dateLabel}
                 </span>
               </div>

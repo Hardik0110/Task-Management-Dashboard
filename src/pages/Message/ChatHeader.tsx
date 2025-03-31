@@ -2,12 +2,9 @@ import React from 'react';
 import { ArrowLeft, Call, Video } from 'iconsax-react';
 import { Avatar } from '@/components/ui/Avatar';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { User } from './messageData';
+import { ChatHeaderProps } from '@/lib/types';
 
-interface ChatHeaderProps {
-  user: User;
-  onBackClick?: () => void;
-}
+
 
 export const ChatHeader: React.FC<ChatHeaderProps> = ({ user, onBackClick }) => {
   const isMobile = useIsMobile();

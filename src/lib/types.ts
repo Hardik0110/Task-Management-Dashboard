@@ -1,3 +1,4 @@
+import { User } from '@/pages/Message/messageData';
 import { ButtonHTMLAttributes, ReactNode } from 'react';
 import { TooltipProps } from "recharts";
 
@@ -186,10 +187,7 @@ export interface MentorCardProps {
 }
 
 export type ChatHeaderProps = {
-  user: {
-    name: string;
-    avatar: string;
-  };
+  user: User;
   onBackClick?: () => void;
 };
 
