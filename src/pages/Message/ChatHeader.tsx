@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft2, Call, Video } from 'iconsax-react';
+import { ArrowLeft, Call, Video } from 'iconsax-react';
 import { Avatar } from '@/components/ui/Avatar';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { User } from './messageData';
@@ -20,7 +20,7 @@ export const ChatHeader: React.FC<ChatHeaderProps> = ({ user, onBackClick }) => 
             onClick={onBackClick}
             className="p-1 hover:bg-gray-100 rounded-full"
           >
-            <ArrowLeft2 size={24} color="#333" />
+            <ArrowLeft size={24} color="#333" />
           </button>
         )}
         <Avatar src={user.avatar} alt={user.name} size="md" />

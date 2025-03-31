@@ -47,9 +47,11 @@ const Message = () => {
 
   return (
     <div className="flex flex-col h-screen overflow-hidden">
-      <div className="flex-shrink-0 border-b border-gray-200">
-        <Header toggleSidebar={toggleSidebar} />
-      </div>
+      {(!isMobile || (isMobile && !selectedConversationId)) && (
+        <div className="flex-shrink-0 border-b border-gray-200">
+          <Header toggleSidebar={toggleSidebar} />
+        </div>
+      )}
       <div className="flex flex-1 min-h-0">
         <ChatSidebar 
           conversations={conversations}
