@@ -27,13 +27,11 @@ export const ChatInput: React.FC<Props> = ({ onSendMessage }) => {
           className="px-4 py-2 focus:ring-0 w-full rounded-lg border-0 focus:outline-none "
         />
       </div>
-
       <Button
         className="p-2 bg-white text-gray-600 hover:bg-gray-100 rounded-lg"
       >
         <AttachCircle size={24} color="grey" />
       </Button>
-
       <Button
         onClick={sendMessage}
         className="px-3 py-2 bg-[#546FFF] text-white rounded-lg hover:bg-blue-600 transition-colors duration-200"

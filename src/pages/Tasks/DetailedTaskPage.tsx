@@ -54,7 +54,8 @@ const DetailedTaskPage = () => {
               <div className="flex flex-wrap gap-4 mt-2">
                 <span className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded-full">UI/UX Design</span>
                 <span className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded-full">Apps Design</span>
-                <span className="text-sm text-blue-600 bg-blue-50 px-3 py-1 rounded-full">XYZ ABC</span>
+                <span className='text-gray-600'>|</span>
+                <button className="text-sm text-blue-600 bg-blue-50 px-3 py-1 rounded-full cursor-pointer">+ Add Mentors</button>
               </div>
               
               <div className="flex items-center gap-4 mt-4">
@@ -82,7 +83,7 @@ const DetailedTaskPage = () => {
                 <ul className="space-y-3">
                   {taskToday.steps?.map((step, index) => (
                       <li key={index} className="flex items-start gap-2">
-                        <TickCircle color='blue' size={24} variant='Bold' />
+                        <TickCircle color='#546FFF' size={24} variant='Bold' />
                         <span className="text-gray-700">{step.description}</span>
                       </li>
                     )) || []}
@@ -102,22 +103,24 @@ const DetailedTaskPage = () => {
                 <div className="space-y-4 mt-6">
                   <h3 className="font-semibold">Detail Student</h3>
                   
-                  <div className="grid grid-cols-2 gap-y-3">
+                  <div className=" grid grid-cols-2 gap-y-3">
                     <div className="text-sm text-gray-600">Student's name</div>
-                    <div className="text-sm font-medium">{studentDetails.name}</div>
+                    <div className="text-sm font-medium justify justify-self-end items-end">{studentDetails.name}</div>
                     
                     <div className="text-sm text-gray-600">Student Class</div>
-                    <div className="text-sm font-medium">{studentDetails.class}</div>
+                    <div className="text-sm font-medium justify justify-self-end items-end">{studentDetails.class}</div>
                     
                     <div className="text-sm text-gray-600">Student Number</div>
-                    <div className="text-sm font-medium">{studentDetails.number}</div>
+                    <div className="text-sm font-medium justify justify-self-end items-end">{studentDetails.number}</div>
                   </div>
                 </div>
 
                 <div className="mt-6">
                   <h3 className="font-semibold mb-2">File Task</h3>
-                  <div className="text-sm text-gray-600 mb-1">Last Modified</div>
-                  <div className="text-sm mb-4">{studentDetails.lastModified}</div>
+                  <div className=" grid grid-cols-2 gap-y-3 justify justify-between">
+                       <div className="text-sm text-gray-600 mb-1">Last Modified</div>
+                      <div className="text-sm mb-4 text-black justify-self-end">{studentDetails.lastModified}</div>
+                  </div>
                   
                   <div className="text-sm text-gray-600 mb-2">File submissions</div>
                   <div className="border-2 border-dashed border-gray-300 rounded-md p-8 flex flex-col items-center justify-center">

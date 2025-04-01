@@ -3,7 +3,7 @@ import { useLocation, matchPath } from "react-router-dom";
 import { 
   HambergerMenu, 
   Notification, 
-  SearchNormal, 
+  SearchNormal1, 
   Sort, 
   Element2,
   Setting4 
@@ -73,39 +73,42 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
 
         {showEnhancedHeader && (
         <div className="flex flex-col md:flex-row items-start md:items-center mt-6 gap-4">
-          <div className="relative flex-1 w-full flex items-center gap-3">
-            <div className="relative flex-1">
-              <input
-                type="text"
-                placeholder="Search..."
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <SearchNormal className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" color="#333" />
-            </div>
+        <div className="relative flex-1 w-full flex items-center gap-3">
+          <div className="relative w-full md:w-1/2">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="w-full px-2 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <SearchNormal1 
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" 
+              color="gray" 
+            />
+          </div>  
 
             {isMobile && (
               <div className="relative">
                 <button 
                   onClick={() => setIsSettingsOpen(!isSettingsOpen)}
-                  className="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
+                  className="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
                 >
-                  <Setting4 className="w-5 h-5" color="#333" />
+                  <Setting4 className="w-5 h-5" color="gray" />
                 </button>
                 
                 {isSettingsOpen && (
-                  <div className="absolute top-full right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 min-w-[160px]">
+                  <div className="absolute top-full right-0 mt-2 bg-white border border-gray-200 rounded-md shadow-lg z-50 min-w-[160px]">
                     <button 
                       className="flex items-center space-x-2 w-full px-4 py-3 hover:bg-gray-50 transition-colors"
                       onClick={() => setIsSettingsOpen(false)}
                     >
-                      <Element2 className="w-5 h-5" color="#333" />
+                      <Element2 className="w-5 h-5" color="gray" />
                       <span>Category</span>
                     </button>
                     <button 
                       className="flex items-center space-x-2 w-full px-4 py-3 hover:bg-gray-50 transition-colors border-t border-gray-100"
                       onClick={() => setIsSettingsOpen(false)}
                     >
-                      <Sort className="w-5 h-5" color="#333" />
+                      <Sort className="w-5 h-5" color="gray" />
                       <span>Sort By</span>
                     </button>
                   </div>
@@ -116,11 +119,11 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
 
           {!isMobile && (
             <div className="flex items-center space-x-3">
-              <button className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors">
+              <button className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
                 <Element2 className="w-5 h-5" color="#333" />
                 <span>Category</span>
               </button>
-              <button className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors">
+              <button className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
                 <Sort className="w-5 h-5" color="#333" />
                 <span>Sort By</span>
               </button>
